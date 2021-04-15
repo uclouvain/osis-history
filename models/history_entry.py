@@ -1,9 +1,13 @@
+import uuid
+
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 
 class HistoryEntry(models.Model):
-    uuid = models.UUIDField(unique=True, editable=False, db_index=True)
+    uuid = models.UUIDField(
+        default=uuid.uuid4, editable=False, unique=True, db_index=True
+    )
     object_uuid = models.UUIDField(
         verbose_name=_("Registered object's UUID"), db_index=True
     )
