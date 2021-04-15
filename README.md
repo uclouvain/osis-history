@@ -43,7 +43,7 @@ To do so, just add the `HistoryDeleteMixin` to the classes that will register hi
 
  - Import and declare the mixin :
 
-        from osis_history.views import HistoryDeleteMixin
+        from osis_history.models import HistoryDeleteMixin
 
          class MyClass(HistoryDeleteMixin, models.Model):
             ...
