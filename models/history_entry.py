@@ -3,7 +3,10 @@ from django.utils.translation import gettext_lazy as _
 
 
 class HistoryEntry(models.Model):
-    uuid = models.UUIDField(unique=True, db_index=True)
+    uuid = models.UUIDField(unique=True, editable=False, db_index=True)
+    object_uuid = models.UUIDField(
+        verbose_name=_("Registered object's UUID"), db_index=True
+    )
     message = models.TextField(verbose_name=_("Message"))
     created = models.DateTimeField(verbose_name=_('Created'), auto_now_add=True)
 
