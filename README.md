@@ -55,11 +55,11 @@ To declare a history entry within a Django application:
  
  - Import the function to add an entry :
 
-        from osis_history.utilities import register_history
+        from osis_history.utilities import add_history_entry
   
  - Pass the object's uuid and a message to it :
 
-        history_add(my_object.uuid, message_as_string)
+        add_history_entry(my_object.uuid, message_as_string)
 
 Visualize a history entry
 -------------------------
