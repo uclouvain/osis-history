@@ -12,7 +12,7 @@ class HistoryEntry(models.Model):
         verbose_name=_("Registered object's UUID"), db_index=True
     )
     message = models.TextField(verbose_name=_("Message"))
-    created = models.DateTimeField(verbose_name=_('Created'), auto_now_add=True)
+    created = models.DateTimeField(verbose_name=_("Created"), auto_now_add=True)
 
     class Meta:
         verbose_name = _("History entry")
