@@ -19,8 +19,8 @@ class UtilitiesTest(TestCase):
 
     def test_get_history_entries_returns_all_history_entries(self):
         history_entries = get_history_entries(self.dummy_instance.uuid)
-        self.assertEqual(history_entries.count(), 1)
+        self.assertEqual(len(history_entries), 1)
         # Create an other history entry on the fly
         HistoryEntry.objects.create(**self.history_entry_data)
         history_entries = get_history_entries(self.dummy_instance.uuid)
-        self.assertEqual(history_entries.count(), 2)
+        self.assertEqual(len(history_entries), 2)
