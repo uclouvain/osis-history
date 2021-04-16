@@ -6,7 +6,7 @@ from history.models import HistoryEntry
 from history.tests.history_test.models import DummyModel
 
 
-class AdmissionDoctorateCreateViewTest(TestCase):
+class HistorySignalTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         cls.dumb_instance = DummyModel.objects.create(uuid=uuid.uuid4())
