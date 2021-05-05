@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from history.models import HistoryEntry
+from osis_history.models import HistoryEntry
 
 __all__ = [
     "HistoryEntryListSerializer",
