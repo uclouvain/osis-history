@@ -12,3 +12,4 @@ class HistoryEntry(models.Model):
     class Meta:
         verbose_name = _("History entry")
         verbose_name_plural = _("History entries")
+        ordering = ("-created", )
