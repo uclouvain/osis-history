@@ -2,7 +2,7 @@ from uuid import UUID
 from datetime import datetime
 from typing import List, Tuple, Union
 
-from history.models import HistoryEntry
+from osis_history.models import HistoryEntry
 
 __all__ = [
     "add_history_entry",

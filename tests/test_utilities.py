@@ -2,9 +2,9 @@ import uuid
 
 from django.test import TestCase
 
-from history.models import HistoryEntry
-from history.tests.history_test.models import DummyModel
-from history.utilities import add_history_entry, get_history_entries
+from osis_history.models import HistoryEntry
+from osis_history.tests.history_test.models import DummyModel
+from osis_history.utilities import add_history_entry, get_history_entries
 
 
 class UtilitiesTest(TestCase):

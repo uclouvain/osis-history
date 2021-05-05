@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class HistoryTestConfig(AppConfig):
-    name = "history.tests.history_test"
+    name = "osis_history.tests.history_test"

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from history.models import HistoryEntry
+from osis_history.models import HistoryEntry
 
 
 class HistoryEntryAdmin(admin.ModelAdmin):

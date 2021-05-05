@@ -2,7 +2,7 @@ from django.apps import AppConfig
 
 
 class HistoryConfig(AppConfig):
-    name = "history"
+    name = "osis_history"
 
     def ready(self):
-        import history.signals.receivers
+        import osis_history.signals.receivers
