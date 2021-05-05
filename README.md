@@ -13,8 +13,9 @@ How to install ?
 Install requirements
 --------------------
 Using pip:
+
 ```
-    $ pip install -r requirements.txt
+$ pip install -r requirements.txt
 ```
 
 Configuring Django
@@ -61,15 +62,44 @@ To declare a history entry within a Django application:
 
         add_history_entry(my_object.uuid, message_as_string)
 
-Visualize a history entry
--------------------------
+Visualize history entries for an object
+---------------------------------------
 
-The complete history of a given object is available within an API call. This API is meant to be called by a VueJS Widget that will allow 3 types of visualizations :
- - table
- - horizontal timeline
- - vertical timeline
+To visualize the complete history of a given object, you must implement a view that will be called to get results,
+you are free to put any permission on it:
 
-Please see this part to know more about the widget : TODO.
+```python
+# In your views
+from osis_history.contrib.mixins import HistoryEntryListAPIMixin
+from osis_role.contrib.views import PermissionRequiredMixin
+
+class MyModuleHistoryView(PermissionRequiredMixin, HistoryEntryListAPIMixin):
+    pass
+
+# In your urls
+from django.urls import path
+
+urlpatterns = [
+    path("<uuid:uuid>/", MyModuleHistoryView.as_view(), name="some-test"),
+]
+```
+
+Then to render the widget for an object, include the CSS and JS file while adding a `div.history-viewer` element to your DOM:
+
+```
+{% block style %}
+  <link href="{% static 'osis_history/osis-history.css' %}" rel="stylesheet"/>
+{% endblock style %}
+
+{% block content %}
+  <div class="history-viewer" data-url="{% url 'some-test' object.uuid %}"></div>
+{% endblock %}
+
+{% block script %}
+  <script type="text/javascript" src="https://unpkg.com/vue@2/dist/vue.min.js"></script>
+  <script type="text/javascript" src="{% static 'osis_history/osis-history.umd.min.js' %}"></script>
+{% endblock %}
+```
 
 Retrieve the full 'raw' history entries
 ---------------------------------------
@@ -83,4 +113,3 @@ All the 'raw' history entries related to an object can be retrieved using the fo
 A history entry will always return the following details :
  - date and time of entry creation
  - Message
- - UUID of the object
