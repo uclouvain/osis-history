@@ -1,0 +1,14 @@
+[run]
+branch = True
+source = osis_history
+omit =
+    */migrations/*
+    venv/*
+    */tests/*
+    */management/*
+    */admin.py
+
+[report]
+skip_covered = True
+show_missing = True
+sort = Miss
