@@ -25,8 +25,9 @@
 # ##############################################################################
 from django.urls import path
 
-from .views import HistoryTestEntryListView
+from .views import HistoryTestEntryListView, HistoryTestView
 
 urlpatterns = [
+    path("", HistoryTestView.as_view(), name="history-test-home"),
     path("<uuid:uuid>/", HistoryTestEntryListView.as_view(), name="history-test"),
 ]

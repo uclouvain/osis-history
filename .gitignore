@@ -127,3 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Frontend related
+/node_modules
+/static/osis_history/osis-history.common.*
+/static/osis_history/osis-history.umd.js*
