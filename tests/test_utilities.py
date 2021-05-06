@@ -14,6 +14,7 @@ class UtilitiesTest(TestCase):
         cls.history_entry_data = {
             "object_uuid": cls.dummy_instance.uuid,
             "message": "a test message",
+            "author": "John Doe",
         }
         cls.history_entry = HistoryEntry.objects.create(**cls.history_entry_data)
 

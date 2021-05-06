@@ -29,12 +29,19 @@
     <tr>
       <th>Date</th>
       <th>Message</th>
+      <th>Author</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody v-if="entries.length">
     <tr v-for="(entry, index) in entries" :key="index">
       <td>{{ new Date(entry.created).toLocaleString() }}</td>
       <td>{{ entry.message }}</td>
+      <td>{{ entry.author }}</td>
+    </tr>
+    </tbody>
+    <tbody v-else>
+    <tr>
+      <td colspan="3">No history entry yet.</td>
     </tr>
     </tbody>
   </table>

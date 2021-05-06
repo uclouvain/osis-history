@@ -11,7 +11,9 @@ class HistorySignalTest(TestCase):
     def setUpTestData(cls):
         cls.dumb_instance = DummyModel.objects.create(uuid=uuid.uuid4())
         cls.history_entry = HistoryEntry.objects.create(
-            object_uuid=cls.dumb_instance.uuid, message="a test message"
+            object_uuid=cls.dumb_instance.uuid,
+            message="a test message",
+            author="John Doe",
         )
 
     def test_delete_instance_must_delete_related_history_entries(self):

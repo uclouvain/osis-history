@@ -24,22 +24,32 @@
   -
   -->
 <template>
-  <ul class="timeline" :class="{'timeline-horizontal': horizontal}">
-    <li v-for="(entry, index) in entries" :key="index" class="timeline-item">
-      <div class="timeline-badge"></div>
-      <div class="timeline-panel">
-        <div class="timeline-heading">
-          <h3 class="h4">
-            <span class="glyphicon glyphicon-time"></span>
-            {{ new Date(entry.created).toLocaleString() }}
-          </h3>
+  <div>
+    <ul
+        v-if="entries.length"
+        class="timeline"
+        :class="{'timeline-horizontal': horizontal}"
+    >
+      <li v-for="(entry, index) in entries" :key="index" class="timeline-item">
+        <div class="timeline-badge"></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h3 class="h4">
+              <span class="glyphicon glyphicon-time"></span>
+              {{ new Date(entry.created).toLocaleString() }}
+              -
+              <span class="glyphicon glyphicon-user"></span>
+              {{ entry.author }}
+            </h3>
+          </div>
+          <div class="timeline-body">
+            <p>{{ entry.message }}</p>
+          </div>
         </div>
-        <div class="timeline-body">
-          <p>{{ entry.message }}</p>
-        </div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
+    <p v-else>No history entry yet.</p>
+  </div>
 </template>
 
 <script>
@@ -116,6 +126,7 @@ export default {
         border-bottom: 15px solid transparent;
         content: " ";
       }
+
       &:after {
         position: absolute;
         top: 27px;
@@ -179,6 +190,7 @@ export default {
           border-bottom: 0;
           border-left: 15px solid transparent;
         }
+
         &:after {
           top: auto;
           bottom: -14px;

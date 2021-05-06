@@ -13,4 +13,5 @@ class HistoryEntryListSerializer(serializers.ModelSerializer):
         fields = [
             "message",
             "created",
+            "author",
         ]
