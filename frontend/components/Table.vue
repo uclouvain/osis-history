@@ -41,7 +41,7 @@
     </tbody>
     <tbody v-else>
     <tr>
-      <td colspan="3">No history entry yet.</td>
+      <td colspan="3">{{ $t('no_entry') }}</td>
     </tr>
     </tbody>
   </table>

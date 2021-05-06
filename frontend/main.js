@@ -33,12 +33,14 @@ const messages = {
   en: {
     date: 'Date',
     message: 'Message',
-    author: 'Author'
+    author: 'Author',
+    no_entry: "No history entry yet."
   },
   fr: {
     date: 'Date',
     message: 'Message',
-    author: 'Auteur'
+    author: 'Auteur',
+    no_entry: "Aucun entrée d'historique pour le moment."
   }
 }
 const i18n = new VueI18n({

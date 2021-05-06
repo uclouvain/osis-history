@@ -48,7 +48,7 @@
         </div>
       </li>
     </ul>
-    <p v-else>No history entry yet.</p>
+    <p v-else>{{ $t('no_entry') }}</p>
   </div>
 </template>
 
