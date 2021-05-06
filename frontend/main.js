@@ -36,7 +36,7 @@ const messages = {
     author: 'Author',
     no_entry: "No history entry yet."
   },
-  fr: {
+  'fr-be': {
     date: 'Date',
     message: 'Message',
     author: 'Auteur',
