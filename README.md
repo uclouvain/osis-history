@@ -113,3 +113,18 @@ All the 'raw' history entries related to an object can be retrieved using the fo
 A history entry will always return the following details :
  - date and time of entry creation
  - Message
+
+Contributing to OSIS-History
+============================
+
+To contribute to the frontend part of this module, install `npm` > 6 (included in [https://nodejs.org/en/download/](nodejs)), and run:
+```console
+cd osis_history
+npm clean-install
+npm run build
+```
+
+Commands available:
+ - `npm run build` builds the frontend component to `osis_history/static/osis_history`
+ - `npm run watch` builds the frontend component to `osis_history/static/osis_history` and watch for file changes (warning: this not a hot-reload, you have to refresh your page)
+ - `npm run serve` serve a basic page for development, this may be used later for easier development
