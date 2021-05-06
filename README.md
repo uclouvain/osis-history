@@ -97,6 +97,7 @@ Then to render the widget for an object, include the CSS and JS file while addin
 
 {% block script %}
   <script type="text/javascript" src="https://unpkg.com/vue@2/dist/vue.min.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/vue-i18n@8.24.4/dist/vue-i18n.min.js"></script>
   <script type="text/javascript" src="{% static 'osis_history/osis-history.umd.min.js' %}"></script>
 {% endblock %}
 ```

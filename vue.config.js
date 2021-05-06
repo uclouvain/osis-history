@@ -30,7 +30,11 @@ module.exports = {
     config.plugins.some((plugin, index) => {
       return plugin.options?.filename === 'demo.html' ? config.plugins.splice(index, 1) : false;
     });
-    return {};
+    return {
+      externals: {
+        'vue-i18n': 'VueI18n',
+      },
+    };
   },
   filenameHashing: false,
   chainWebpack: config => {

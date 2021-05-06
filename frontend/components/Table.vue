@@ -27,9 +27,9 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <th>Date</th>
-      <th>Message</th>
-      <th>Author</th>
+      <th>{{ $t('date') }}</th>
+      <th>{{ $t('message') }}</th>
+      <th>{{ $t('author') }}</th>
     </tr>
     </thead>
     <tbody v-if="entries.length">
