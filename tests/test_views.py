@@ -61,10 +61,8 @@ class HistoryApiTestCase(TestCase):
         response = self.client.get(self.list_url)
         self.assertEqual(response.status_code, 200)
         # We must get back the 3 history entries created in the setup
-        self.assertEqual(response.data["count"], 3)
-        self.assertEqual(
-            response.data["results"][0]["message"], self.history_entry_data["message"]
-        )
+        self.assertEqual(len(response.data), 3)
+        self.assertEqual(response.data[0]["message"], self.history_entry_data["message"])
 
     def test_list_api_view_returns_no_results_if_given_uuid_is_not_found(self):
         self.client.force_login(self.user)
@@ -74,4 +72,4 @@ class HistoryApiTestCase(TestCase):
         )
         response = self.client.get(list_url)
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.data["count"], 0)
+        self.assertEqual(len(response.data), 0)

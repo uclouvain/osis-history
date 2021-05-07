@@ -12,6 +12,7 @@ __all__ = [
 class HistoryEntryListAPIMixin(ListAPIView):
     serializer_class = HistoryEntryListSerializer
     authentication_classes = [SessionAuthentication]
+    pagination_class = None
 
     def get_queryset(self):
         """Filter the queryset with the object's uuid passed in url"""
