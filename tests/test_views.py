@@ -49,7 +49,8 @@ class HistoryApiTestCase(TestCase):
         )
         cls.history_entry_data = {
             "object_uuid": cls.dumb_instance.uuid,
-            "message": "a test message",
+            "message_fr": "un message de test",
+            "message_en": "a test message",
             "author": "John Doe",
         }
         # Create 3 history entries related to the same instance
@@ -65,7 +66,8 @@ class HistoryApiTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         # We must get back the 3 history entries created in the setup
         self.assertEqual(len(response.data), 3)
-        self.assertEqual(response.data[0]["message"], self.history_entry_data["message"])
+        self.assertEqual(response.data[0]["message_en"], self.history_entry_data["message_en"])
+        self.assertEqual(response.data[0]["message_fr"], self.history_entry_data["message_fr"])
         self.assertEqual(response.data[0]["author"], self.history_entry_data["author"])
         self.assertEqual(response.data[0]["created"], strftime(self.created, '%d/%m/%Y %H:%M'))
 

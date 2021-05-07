@@ -12,7 +12,8 @@ class HistorySignalTest(TestCase):
         cls.dumb_instance = DummyModel.objects.create(uuid=uuid.uuid4())
         cls.history_entry = HistoryEntry.objects.create(
             object_uuid=cls.dumb_instance.uuid,
-            message="a test message",
+            message_fr="un message de test",
+            message_en="a test message",
             author="John Doe",
         )
 

@@ -13,7 +13,8 @@ class HistoryEntryListSerializer(serializers.ModelSerializer):
     class Meta:
         model = HistoryEntry
         fields = [
-            "message",
+            "message_fr",
+            "message_en",
             "created",
             "author",
         ]

@@ -58,9 +58,9 @@ To declare a history entry within a Django application:
 
         from osis_history.utilities import add_history_entry
   
- - Pass the object's uuid and a message to it :
+ - Pass the object's uuid and both french and english messages to it :
 
-        add_history_entry(my_object.uuid, message_as_string)
+        add_history_entry(my_object.uuid, french_message_as_string, english_message_as_string)
 
 Visualize history entries for an object
 ---------------------------------------
@@ -113,7 +113,8 @@ All the 'raw' history entries related to an object can be retrieved using the fo
 
 A history entry will always return the following details :
  - date and time of entry creation
- - Message
+ - Message in french
+ - Message in english
 
 Contributing to OSIS-History
 ============================
