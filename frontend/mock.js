@@ -29,19 +29,19 @@ module.exports = {
   'GET /test/976c3482-83d9-48b4-b396-213f52d8aa5e/': [],
   'GET /test/294bdebc-7690-4b3a-9fb6-2a9bd4020d99/': [{
     author: "John Doe",
-    created: '2021-04-06T16:23:55.793331',
+    created: '06/04/2021 16:23',
     message: "Ut molestiae aliquam tenetur est veritatis dolorum tempora. Eaque similique et qui ea consequatur illum dignissimos. Ullam qui vel qui quo. Ea dolor quasi quibusdam quia illum sunt aspernatur. Eveniet odio quos ad.",
   }, {
     author: "Alice Smith",
-    created: '2021-04-03T16:23:55.793331',
+    created: '03/04/2021 16:23',
     message: "Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium. Sit facilis vitae sapiente. Placeat est qui et.",
   }, {
     author: "Bob Martin",
-    created: '2021-04-01T08:23:55.793331',
+    created: '01/04/2021 08:23',
     message: "Corrupti reiciendis laboriosam repellat adipisci quis. Iure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.",
   }, {
     author: "John Doe",
-    created: '2021-03-28T10:00:55.793331',
+    created: '28/03/2021 10:00',
     message: "Sed et aut recusandae magni. Et aperiam dolores tempora. Eum et enim quia amet maxime quaerat earum. Quam fuga odit alias. Et repellendus accusantium corporis. Nihil et harum tenetur dolorum cum qui.",
   }],
 };

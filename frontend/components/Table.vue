@@ -34,7 +34,7 @@
     </thead>
     <tbody v-if="entries.length">
     <tr v-for="(entry, index) in entries" :key="index">
-      <td>{{ new Date(entry.created).toLocaleString() }}</td>
+      <td>{{ entry.created }}</td>
       <td>{{ entry.message }}</td>
       <td>{{ entry.author }}</td>
     </tr>

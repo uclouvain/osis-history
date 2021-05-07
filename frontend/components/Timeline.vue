@@ -36,7 +36,7 @@
           <div class="timeline-heading">
             <h3 class="h4">
               <span class="glyphicon glyphicon-time"></span>
-              {{ new Date(entry.created).toLocaleString() }}
+              {{ entry.created }}
               -
               <span class="glyphicon glyphicon-user"></span>
               {{ entry.author }}
