@@ -1,6 +1,6 @@
-from uuid import UUID
 from datetime import datetime
-from typing import List, Tuple, Union
+from typing import List, Union, NamedTuple
+from uuid import UUID
 
 from osis_history.models import HistoryEntry
 
@@ -8,6 +8,8 @@ __all__ = [
     "add_history_entry",
     "get_history_entries",
 ]
+
+Entry = NamedTuple('Entry', [('created', datetime), ('message', str), ('author', str)])
 
 
 def add_history_entry(object_uuid: Union[str, UUID], message: str, author: str) -> None:
@@ -20,18 +22,17 @@ def add_history_entry(object_uuid: Union[str, UUID], message: str, author: str) 
     HistoryEntry.objects.create(object_uuid=object_uuid, message=message, author=author)
 
 
-def get_history_entries(object_uuid: Union[str, UUID]) -> List[Tuple[datetime, str, str]]:
+def get_history_entries(object_uuid: Union[str, UUID]) -> List[Entry]:
     """Return all the history entries related to a given objet's uuid.
 
     :param object_uuid: The object's instance uuid
     :return: A 3-element tuple of datetime and strings that each represent a history entry
     """
-    return list(
-        HistoryEntry.objects.filter(
-            object_uuid=object_uuid
-        ).values_list(
-            "created",
-            "message",
-            "author",
-        )
+    queryset = HistoryEntry.objects.filter(
+        object_uuid=object_uuid
+    ).values_list(
+        "created",
+        "message",
+        "author",
     )
+    return list(map(Entry._make, queryset))
