@@ -6,7 +6,8 @@ class HistoryEntry(models.Model):
     object_uuid = models.UUIDField(
         verbose_name=_("Registered object's UUID"), db_index=True
     )
-    message = models.TextField(verbose_name=_("Message"))
+    message_fr = models.TextField(verbose_name=_("Message in french"))
+    message_en = models.TextField(verbose_name=_("Message in english"))
     created = models.DateTimeField(verbose_name=_("Created"), auto_now_add=True)
     author = models.CharField(verbose_name=_("Author"), max_length=255)
 
