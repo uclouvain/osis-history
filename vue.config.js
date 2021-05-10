@@ -26,15 +26,35 @@
 module.exports = {
   outputDir: "static/osis_history",
   configureWebpack(config) {
-    // Remove demo.html
+    // Removes demo.html
     config.plugins.some((plugin, index) => {
       return plugin.options?.filename === 'demo.html' ? config.plugins.splice(index, 1) : false;
     });
-    return {};
+    return {
+      devServer: {
+        overlay: true,
+      },
+      externals: {
+        'vue-i18n': 'VueI18n',
+      },
+    };
   },
   filenameHashing: false,
   chainWebpack: config => {
     config.plugins.delete('preload')
     config.plugins.delete('prefetch')
-  }
+  },
+  pages: {
+    index: {
+      // This is used as the main entrypoint
+      entry: 'frontend/main.js',
+      // This is used during serving development page
+      template: 'frontend/index.html',
+    },
+  },
+  pluginOptions: {
+    mock: {
+      entry: './frontend/mock.js',
+    },
+  },
 }

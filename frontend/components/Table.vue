@@ -27,14 +27,21 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <th>Date</th>
-      <th>Message</th>
+      <th>{{ $t('date') }}</th>
+      <th>{{ $t('message') }}</th>
+      <th>{{ $t('author') }}</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody v-if="entries.length">
     <tr v-for="(entry, index) in entries" :key="index">
-      <td>{{ new Date(entry.created).toLocaleString() }}</td>
+      <td>{{ entry.created }}</td>
       <td>{{ entry.message }}</td>
+      <td>{{ entry.author }}</td>
+    </tr>
+    </tbody>
+    <tbody v-else>
+    <tr>
+      <td colspan="3">{{ $t('no_entry') }}</td>
     </tr>
     </tbody>
   </table>

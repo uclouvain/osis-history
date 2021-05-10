@@ -8,9 +8,12 @@ __all__ = [
 
 
 class HistoryEntryListSerializer(serializers.ModelSerializer):
+    created = serializers.DateTimeField(format='%d/%m/%Y %H:%M')
+
     class Meta:
         model = HistoryEntry
         fields = [
             "message",
             "created",
+            "author",
         ]

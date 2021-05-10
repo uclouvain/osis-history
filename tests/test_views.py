@@ -28,6 +28,7 @@ import uuid
 
 from django.test import TestCase, override_settings
 from django.urls import reverse
+from django.utils.datetime_safe import strftime
 from rest_framework.test import APIClient
 
 from base.tests.factories.user import UserFactory
@@ -49,11 +50,13 @@ class HistoryApiTestCase(TestCase):
         cls.history_entry_data = {
             "object_uuid": cls.dumb_instance.uuid,
             "message": "a test message",
+            "author": "John Doe",
         }
         # Create 3 history entries related to the same instance
         HistoryEntry.objects.create(**cls.history_entry_data)
         HistoryEntry.objects.create(**cls.history_entry_data)
-        HistoryEntry.objects.create(**cls.history_entry_data)
+        entry = HistoryEntry.objects.create(**cls.history_entry_data)
+        cls.created = entry.created
         cls.list_url = reverse("history-test", args=[cls.dumb_instance.uuid])
 
     def test_list_api_view_returns_related_history_entries(self):
@@ -63,6 +66,8 @@ class HistoryApiTestCase(TestCase):
         # We must get back the 3 history entries created in the setup
         self.assertEqual(len(response.data), 3)
         self.assertEqual(response.data[0]["message"], self.history_entry_data["message"])
+        self.assertEqual(response.data[0]["author"], self.history_entry_data["author"])
+        self.assertEqual(response.data[0]["created"], strftime(self.created, '%d/%m/%Y %H:%M'))
 
     def test_list_api_view_returns_no_results_if_given_uuid_is_not_found(self):
         self.client.force_login(self.user)

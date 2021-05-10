@@ -97,6 +97,7 @@ Then to render the widget for an object, include the CSS and JS file while addin
 
 {% block script %}
   <script type="text/javascript" src="https://unpkg.com/vue@2/dist/vue.min.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/vue-i18n@8.24.4/dist/vue-i18n.min.js"></script>
   <script type="text/javascript" src="{% static 'osis_history/osis-history.umd.min.js' %}"></script>
 {% endblock %}
 ```
@@ -127,4 +128,6 @@ npm run build
 Commands available:
  - `npm run build` builds the frontend component to `osis_history/static/osis_history`
  - `npm run watch` builds the frontend component to `osis_history/static/osis_history` and watch for file changes (warning: this not a hot-reload, you have to refresh your page)
- - `npm run serve` serve a basic page for development, this may be used later for easier development
+ - `npm run serve` serve a basic page for development, that can be used for easier coding:
+   - the html is served from `frontend/index.html`
+   - the requests are mocked from `frontend/mock.js`
