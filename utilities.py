@@ -9,17 +9,36 @@ __all__ = [
     "get_history_entries",
 ]
 
-Entry = NamedTuple('Entry', [('created', datetime), ('message', str), ('author', str)])
+Entry = NamedTuple(
+    "Entry",
+    [
+        ("created", datetime),
+        ("message_fr", str),
+        ("message_en", str),
+        ("author", str),
+    ]
+)
 
 
-def add_history_entry(object_uuid: Union[str, UUID], message: str, author: str) -> None:
+def add_history_entry(
+        object_uuid: Union[str, UUID],
+        message_fr: str,
+        message_en: str,
+        author: str
+) -> None:
     """Add a HistoryEntry related to the given object's uuid with a custom message.
 
     :param object_uuid: The object's instance uuid
-    :param message: The custom message of the history entry
+    :param message_fr: The custom message - in french - of the history entry
+    :param message_en: The custom message - in english - of the history entry
     :param author: The author of the history entry
     """
-    HistoryEntry.objects.create(object_uuid=object_uuid, message=message, author=author)
+    HistoryEntry.objects.create(
+        object_uuid=object_uuid,
+        message_fr=message_fr,
+        message_en=message_en,
+        author=author,
+    )
 
 
 def get_history_entries(object_uuid: Union[str, UUID]) -> List[Entry]:
@@ -32,7 +51,8 @@ def get_history_entries(object_uuid: Union[str, UUID]) -> List[Entry]:
         object_uuid=object_uuid
     ).values_list(
         "created",
-        "message",
+        "message_fr",
+        "message_en",
         "author",
     )
     return list(map(Entry._make, queryset))
