@@ -26,6 +26,7 @@
 
 import uuid
 
+from django.conf import settings
 from django.test import TestCase, override_settings
 from django.urls import reverse
 from django.utils.datetime_safe import strftime
@@ -60,16 +61,24 @@ class HistoryApiTestCase(TestCase):
         cls.created = entry.created
         cls.list_url = reverse("history-test", args=[cls.dumb_instance.uuid])
 
+    # Explicitly set the language code, even if it is the default
+    @override_settings(LANGUAGE_CODE=settings.LANGUAGE_CODE_FR)
     def test_list_api_view_returns_related_history_entries(self):
         self.client.force_login(self.user)
         response = self.client.get(self.list_url)
         self.assertEqual(response.status_code, 200)
         # We must get back the 3 history entries created in the setup
         self.assertEqual(len(response.data), 3)
-        self.assertEqual(response.data[0]["message_en"], self.history_entry_data["message_en"])
-        self.assertEqual(response.data[0]["message_fr"], self.history_entry_data["message_fr"])
+        self.assertEqual(response.data[0]["message"], self.history_entry_data["message_fr"])
         self.assertEqual(response.data[0]["author"], self.history_entry_data["author"])
         self.assertEqual(response.data[0]["created"], strftime(self.created, '%d/%m/%Y %H:%M'))
+
+    @override_settings(LANGUAGE_CODE=settings.LANGUAGE_CODE_EN)
+    def test_list_api_view_returns_message_in_the_selected_language(self):
+        self.client.force_login(self.user)
+        response = self.client.get(self.list_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data[0]["message"], self.history_entry_data["message_en"])
 
     def test_list_api_view_returns_no_results_if_given_uuid_is_not_found(self):
         self.client.force_login(self.user)

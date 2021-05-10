@@ -32,15 +32,13 @@ Vue.use(VueI18n);
 const messages = {
   en: {
     date: 'Date',
-    message_fr: 'Message in french',
-    message_en: 'Message in english',
+    message: 'Message',
     author: 'Author',
     no_entry: "No history entry yet."
   },
   'fr-be': {
     date: 'Date',
-    message_fr: 'Message en français',
-    message_en: 'Message en anglais',
+    message: 'Message',
     author: 'Auteur',
     no_entry: "Aucun entrée d'historique pour le moment."
   }

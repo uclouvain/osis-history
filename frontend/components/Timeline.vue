@@ -43,8 +43,7 @@
             </h3>
           </div>
           <div class="timeline-body">
-            <p>{{ entry.message_fr }}</p>
-            <p>{{ entry.message_en }}</p>
+            <p>{{ entry.message }}</p>
           </div>
         </div>
       </li>
