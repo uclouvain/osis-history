@@ -75,7 +75,9 @@ exports[`Storyshots Global component No History 1`] = `
           <td
             colspan="3"
           >
-            No history entry yet.
+            
+        No history entry yet.
+      
           </td>
         </tr>
       </tbody>
@@ -159,7 +161,9 @@ exports[`Storyshots Global component With History 1`] = `
           <td
             colspan="3"
           >
-            No history entry yet.
+            
+        No history entry yet.
+      
           </td>
         </tr>
       </tbody>
@@ -193,7 +197,9 @@ exports[`Storyshots Table No History 1`] = `
       <td
         colspan="3"
       >
+        
         No history entry yet.
+      
       </td>
     </tr>
   </tbody>
@@ -453,7 +459,9 @@ exports[`Storyshots Timeline Horizontal 1`] = `
 exports[`Storyshots Timeline No History 1`] = `
 <div>
   <p>
+    
     No history entry yet.
+  
   </p>
 </div>
 `;
