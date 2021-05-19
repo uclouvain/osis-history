@@ -24,26 +24,32 @@
  *
  */
 
-import Vue from 'vue';
-import VueI18n from 'vue-i18n';
-
-Vue.use(VueI18n);
-
-const messages = {
-  en: {
-    date: 'Date',
-    message: 'Message',
-    author: 'Author',
-    no_entry: 'No history entry yet.',
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
   },
-  'fr-be': {
-    date: 'Date',
-    message: 'Message',
-    author: 'Auteur',
-    no_entry: "Aucun entrée d'historique pour le moment.",
+  extends: [
+    'eslint:recommended',
+    'plugin:vue/recommended',
+  ],
+  overrides: [{
+    files: '*.vue',
+  }],
+  globals: {
+    jQuery: 'readonly',
+  },
+  parserOptions: {
+    'ecmaVersion': 2021,
+    'sourceType': 'module',
+  },
+  plugins: [
+    'vue',
+  ],
+  rules: {
+    'vue/html-indent': ['error', 2, {
+      'attribute': 2,
+    }],
+    'comma-dangle': ['error', 'always-multiline'],
   },
 };
-export const i18n = new VueI18n({
-  locale: document.documentElement.lang || 'en',
-  messages,
-});

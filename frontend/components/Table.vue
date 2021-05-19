@@ -26,37 +26,42 @@
 <template>
   <table class="table table-striped">
     <thead>
-    <tr>
-      <th>{{ $t('date') }}</th>
-      <th>{{ $t('message') }}</th>
-      <th>{{ $t('author') }}</th>
-    </tr>
+      <tr>
+        <th>{{ $t('date') }}</th>
+        <th>{{ $t('message') }}</th>
+        <th>{{ $t('author') }}</th>
+      </tr>
     </thead>
     <tbody v-if="entries.length">
-    <tr v-for="(entry, index) in entries" :key="index">
-      <td>{{ entry.created }}</td>
-      <td>{{ entry.message }}</td>
-      <td>{{ entry.author }}</td>
-    </tr>
+      <tr
+          v-for="(entry, index) in entries"
+          :key="index"
+      >
+        <td>{{ entry.created }}</td>
+        <td>{{ entry.message }}</td>
+        <td>{{ entry.author }}</td>
+      </tr>
     </tbody>
     <tbody v-else>
-    <tr>
-      <td colspan="3">{{ $t('no_entry') }}</td>
-    </tr>
+      <tr>
+        <td colspan="3">
+          {{ $t('no_entry') }}
+        </td>
+      </tr>
     </tbody>
   </table>
 </template>
 
 <script>
 export default {
-  name: "Table",
+  name: 'Table',
   props: {
     entries: {
       type: Array,
       default: () => [],
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>

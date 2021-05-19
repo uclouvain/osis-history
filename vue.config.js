@@ -44,17 +44,4 @@ module.exports = {
     config.plugins.delete('preload')
     config.plugins.delete('prefetch')
   },
-  pages: {
-    index: {
-      // This is used as the main entrypoint
-      entry: 'frontend/main.js',
-      // This is used during serving development page
-      template: 'frontend/index.html',
-    },
-  },
-  pluginOptions: {
-    mock: {
-      entry: './frontend/mock.js',
-    },
-  },
 }

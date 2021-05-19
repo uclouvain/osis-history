@@ -30,15 +30,19 @@
         class="timeline"
         :class="{'timeline-horizontal': horizontal}"
     >
-      <li v-for="(entry, index) in entries" :key="index" class="timeline-item">
-        <div class="timeline-badge"></div>
+      <li
+          v-for="(entry, index) in entries"
+          :key="index"
+          class="timeline-item"
+      >
+        <div class="timeline-badge" />
         <div class="timeline-panel">
           <div class="timeline-heading">
             <h3 class="h4">
-              <span class="glyphicon glyphicon-time"></span>
+              <span class="glyphicon glyphicon-time" />
               {{ entry.created }}
               -
-              <span class="glyphicon glyphicon-user"></span>
+              <span class="glyphicon glyphicon-user" />
               {{ entry.author }}
             </h3>
           </div>
@@ -48,7 +52,9 @@
         </div>
       </li>
     </ul>
-    <p v-else>{{ $t('no_entry') }}</p>
+    <p v-else>
+      {{ $t('no_entry') }}
+    </p>
   </div>
 </template>
 
@@ -63,8 +69,8 @@ export default {
     horizontal: {
       type: Boolean,
       default: false,
-    }
-  }
+    },
+  },
 }
 </script>
 

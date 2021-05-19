@@ -25,22 +25,47 @@
   -->
 <template>
   <div class="history-viewer">
-    <div class="btn-group" data-toggle="buttons">
-      <label class="btn btn-default active" @click="mode = 'Table'">
-        <input type="radio" name="mode">
-        <span class="fa fa-table"></span>
+    <div
+        class="btn-group"
+        data-toggle="buttons"
+    >
+      <label
+          class="btn btn-default active"
+          @click="mode = 'Table'"
+      >
+        <input
+            type="radio"
+            name="mode"
+        >
+        <span class="fa fa-table" />
       </label>
-      <label class="btn btn-default" @click="mode = 'Timeline'; horizontal = false;">
-        <input type="radio" name="mode">
-        <span class="fas fa-ellipsis-v"></span>
+      <label
+          class="btn btn-default"
+          @click="mode = 'Timeline'; horizontal = false;"
+      >
+        <input
+            type="radio"
+            name="mode"
+        >
+        <span class="fas fa-ellipsis-v" />
       </label>
-      <label class="btn btn-default" @click="mode = 'Timeline'; horizontal = true;">
-        <input type="radio" name="mode">
-        <span class="fa fa-ellipsis-h"></span>
+      <label
+          class="btn btn-default"
+          @click="mode = 'Timeline'; horizontal = true;"
+      >
+        <input
+            type="radio"
+            name="mode"
+        >
+        <span class="fa fa-ellipsis-h" />
       </label>
     </div>
     <div class="viewport">
-      <component :is="mode" :entries="entries" :horizontal="horizontal"/>
+      <component
+          :is="mode"
+          :entries="entries"
+          :horizontal="horizontal"
+      />
     </div>
   </div>
 </template>
@@ -51,15 +76,15 @@ import Timeline from './components/Timeline';
 
 export default {
   name: 'HistoryViewer',
+  components: {
+    Table,
+    Timeline,
+  },
   props: {
     url: {
       type: String,
       default: '',
     },
-  },
-  components: {
-    Table,
-    Timeline,
   },
   data () {
     return {
