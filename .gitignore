@@ -132,3 +132,4 @@ dmypy.json
 /node_modules
 /static/osis_history/osis-history.common.*
 /static/osis_history/osis-history.umd.js*
+/coverage

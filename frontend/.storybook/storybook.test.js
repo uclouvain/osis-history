@@ -23,13 +23,9 @@
  *   see http://www.gnu.org/licenses/.
  *
  */
-import Vue from 'vue';
-import HistoryViewer from './HistoryViewer';
-import { i18n } from './i18n';
 
-document.querySelectorAll('.history-viewer').forEach((elem) => {
-  new Vue({
-    render: (h) => h(HistoryViewer, { props: elem.dataset }),
-    i18n,
-  }).$mount(elem);
+import initStoryshots from '@storybook/addon-storyshots';
+
+initStoryshots({
+  configPath: 'frontend/.storybook'
 });

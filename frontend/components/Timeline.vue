@@ -56,7 +56,10 @@
 export default {
   name: 'Timeline',
   props: {
-    entries: Array,
+    entries: {
+      type: Array,
+      default: () => [],
+    },
     horizontal: {
       type: Boolean,
       default: false,

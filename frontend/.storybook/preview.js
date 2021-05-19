@@ -23,13 +23,15 @@
  *   see http://www.gnu.org/licenses/.
  *
  */
-import Vue from 'vue';
-import HistoryViewer from './HistoryViewer';
-import { i18n } from './i18n';
 
-document.querySelectorAll('.history-viewer').forEach((elem) => {
-  new Vue({
-    render: (h) => h(HistoryViewer, { props: elem.dataset }),
-    i18n,
-  }).$mount(elem);
-});
+import { i18n } from "../i18n";
+import { addDecorator } from '@storybook/vue';
+
+// Internationalisation
+addDecorator(() => ({
+  i18n,
+  beforeCreate: function() {
+    this.$root._i18n = this.$i18n;
+  },
+  template: "<story/>"
+}));

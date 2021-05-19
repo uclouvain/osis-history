@@ -5,23 +5,34 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name osis-history --entry frontend/main.js --mode production",
-    "watch": "vue-cli-service build --target lib --name osis-history --entry frontend/main.js --mode production --watch",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "storybook": "vue-cli-service storybook:serve -p 6006 -c frontend/.storybook",
+    "test": "jest",
+    "watch": "vue-cli-service build --target lib --name osis-history --entry frontend/main.js --mode production --watch"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^6.0.26",
+    "@storybook/addon-links": "^6.0.26",
+    "@storybook/addon-storyshots": "^6.2.9",
+    "@storybook/vue": "^6.0.26",
     "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-eslint": "^4.5.13",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^24.3.6",
     "eslint-plugin-vue": "^6.2.2",
+    "fetch-mock": "^9.11.0",
+    "jest": "^26.6.3",
     "lint-staged": "^9.5.0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "vue": "^2.6.11",
     "vue-cli-plugin-mock": "~1.0.3",
+    "vue-cli-plugin-storybook": "~2.0.0",
     "vue-i18n": "^8.24.4",
+    "vue-jest": "^3.0.7",
     "vue-template-compiler": "^2.6.11"
   },
   "peerDependencies": {
@@ -51,5 +62,53 @@
   "browserslist": [
     "defaults",
     "ie 11"
-  ]
+  ],
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      ".*\\.(vue)$": "vue-jest",
+      ".*\\.(js)$": "babel-jest"
+    },
+    "collectCoverageFrom": [
+      "frontend/**/*.{js,vue}",
+      "!frontend/main.js",
+      "!frontend/mock.js"
+    ]
+  },
+  "eslint": {
+    "env": {
+      "browser": true,
+      "jest/globals": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:vue/recommended"
+    ],
+    "overrides": [
+      {
+        "files": "*.vue"
+      }
+    ],
+    "parserOptions": {
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "vue",
+      "jest"
+    ],
+    "rules": {
+      "vue/html-indent": [
+        "error",
+        2,
+        {
+          "attribute": 2
+        }
+      ]
+    }
+  }
 }

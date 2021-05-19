@@ -46,29 +46,34 @@
 </template>
 
 <script>
-import Table from "./components/Table";
-import Timeline from "./components/Timeline";
+import Table from './components/Table';
+import Timeline from './components/Timeline';
 
 export default {
   name: 'HistoryViewer',
   props: {
-    url: String
+    url: {
+      type: String,
+      default: '',
+    },
   },
   components: {
     Table,
     Timeline,
   },
-  data() {
+  data () {
     return {
       mode: 'Table',
       horizontal: false,
       entries: [],
+    };
+  },
+  async mounted () {
+    if (this.url) {
+      const response = await fetch(this.url);
+      this.entries = await response.json();
     }
   },
-  async mounted() {
-    const response = await fetch(this.url);
-    this.entries = await response.json();
-  }
 };
 </script>
 

@@ -51,7 +51,10 @@
 export default {
   name: "Table",
   props: {
-    entries: Array,
+    entries: {
+      type: Array,
+      default: () => [],
+    }
   }
 }
 </script>
