@@ -50,7 +50,11 @@ jobs:
         - npm install
       script:
         - npm run lint
-        - npm run test
+        - npm run coverage
+
+      after_success:
+       - npm install coveralls
+       - coveralls < coverage/lcov.info
 
 env:
   - COVERALLS_PARALLEL=true
