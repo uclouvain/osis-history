@@ -23,25 +23,9 @@
  *   see http://www.gnu.org/licenses/.
  *
  */
-module.exports = {
-  outputDir: "static/osis_history",
-  configureWebpack(config) {
-    // Removes demo.html
-    config.plugins.some((plugin, index) => {
-      return plugin.options?.filename === 'demo.html' ? config.plugins.splice(index, 1) : false;
-    });
-    return {
-      devServer: {
-        overlay: true,
-      },
-      externals: {
-        'vue-i18n': 'VueI18n',
-      },
-    };
-  },
-  filenameHashing: false,
-  chainWebpack: config => {
-    config.plugins.delete('preload')
-    config.plugins.delete('prefetch')
-  },
-}
+
+import initStoryshots from '@storybook/addon-storyshots';
+
+initStoryshots({
+  configPath: 'frontend/.storybook'
+});

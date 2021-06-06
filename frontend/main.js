@@ -24,33 +24,12 @@
  *
  */
 import Vue from 'vue';
-import VueI18n from 'vue-i18n';
 import HistoryViewer from './HistoryViewer';
-
-Vue.use(VueI18n);
-
-const messages = {
-  en: {
-    date: 'Date',
-    message: 'Message',
-    author: 'Author',
-    no_entry: "No history entry yet."
-  },
-  'fr-be': {
-    date: 'Date',
-    message: 'Message',
-    author: 'Auteur',
-    no_entry: "Aucun entrée d'historique pour le moment."
-  }
-}
-const i18n = new VueI18n({
-  locale: document.documentElement.lang,
-  messages,
-})
+import { i18n } from './i18n';
 
 document.querySelectorAll('.history-viewer').forEach((elem) => {
   new Vue({
-    render: (h) => h(HistoryViewer, {props: elem.dataset}),
+    render: (h) => h(HistoryViewer, { props: elem.dataset }),
     i18n,
   }).$mount(elem);
 });

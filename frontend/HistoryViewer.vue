@@ -25,50 +25,80 @@
   -->
 <template>
   <div class="history-viewer">
-    <div class="btn-group" data-toggle="buttons">
-      <label class="btn btn-default active" @click="mode = 'Table'">
-        <input type="radio" name="mode">
-        <span class="fa fa-table"></span>
+    <div
+        class="btn-group"
+        data-toggle="buttons"
+    >
+      <label
+          class="btn btn-default active"
+          @click="mode = 'Table'"
+      >
+        <input
+            type="radio"
+            name="mode"
+        >
+        <span class="fa fa-table" />
       </label>
-      <label class="btn btn-default" @click="mode = 'Timeline'; horizontal = false;">
-        <input type="radio" name="mode">
-        <span class="fas fa-ellipsis-v"></span>
+      <label
+          class="btn btn-default"
+          @click="mode = 'Timeline'; horizontal = false;"
+      >
+        <input
+            type="radio"
+            name="mode"
+        >
+        <span class="fas fa-ellipsis-v" />
       </label>
-      <label class="btn btn-default" @click="mode = 'Timeline'; horizontal = true;">
-        <input type="radio" name="mode">
-        <span class="fa fa-ellipsis-h"></span>
+      <label
+          class="btn btn-default"
+          @click="mode = 'Timeline'; horizontal = true;"
+      >
+        <input
+            type="radio"
+            name="mode"
+        >
+        <span class="fa fa-ellipsis-h" />
       </label>
     </div>
     <div class="viewport">
-      <component :is="mode" :entries="entries" :horizontal="horizontal"/>
+      <component
+          :is="mode"
+          :entries="entries"
+          :horizontal="horizontal"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import Table from "./components/Table";
-import Timeline from "./components/Timeline";
+import Table from './components/Table';
+import Timeline from './components/Timeline';
 
 export default {
   name: 'HistoryViewer',
-  props: {
-    url: String
-  },
   components: {
     Table,
     Timeline,
   },
-  data() {
+  props: {
+    url: {
+      type: String,
+      default: '',
+    },
+  },
+  data () {
     return {
       mode: 'Table',
       horizontal: false,
       entries: [],
+    };
+  },
+  async mounted () {
+    if (this.url) {
+      const response = await fetch(this.url);
+      this.entries = await response.json();
     }
   },
-  async mounted() {
-    const response = await fetch(this.url);
-    this.entries = await response.json();
-  }
 };
 </script>
 

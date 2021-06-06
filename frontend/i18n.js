@@ -23,25 +23,27 @@
  *   see http://www.gnu.org/licenses/.
  *
  */
-module.exports = {
-  outputDir: "static/osis_history",
-  configureWebpack(config) {
-    // Removes demo.html
-    config.plugins.some((plugin, index) => {
-      return plugin.options?.filename === 'demo.html' ? config.plugins.splice(index, 1) : false;
-    });
-    return {
-      devServer: {
-        overlay: true,
-      },
-      externals: {
-        'vue-i18n': 'VueI18n',
-      },
-    };
+
+import Vue from 'vue';
+import VueI18n from 'vue-i18n';
+
+Vue.use(VueI18n);
+
+const messages = {
+  en: {
+    date: 'Date',
+    message: 'Message',
+    author: 'Author',
+    no_entry: 'No history entry yet.',
   },
-  filenameHashing: false,
-  chainWebpack: config => {
-    config.plugins.delete('preload')
-    config.plugins.delete('prefetch')
+  'fr-be': {
+    date: 'Date',
+    message: 'Message',
+    author: 'Auteur',
+    no_entry: "Aucun entrée d'historique pour le moment.",
   },
-}
+};
+export const i18n = new VueI18n({
+  locale: document.documentElement.lang || 'en',
+  messages,
+});

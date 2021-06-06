@@ -1,0 +1,640 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Global component No History 1`] = `
+<div
+  class="history-viewer"
+>
+  <div
+    class="btn-group"
+    data-toggle="buttons"
+  >
+    <label
+      class="btn btn-default active"
+    >
+      <input
+        name="mode"
+        type="radio"
+      />
+       
+      <span
+        class="fa fa-table"
+      />
+    </label>
+     
+    <label
+      class="btn btn-default"
+    >
+      <input
+        name="mode"
+        type="radio"
+      />
+       
+      <span
+        class="fas fa-ellipsis-v"
+      />
+    </label>
+     
+    <label
+      class="btn btn-default"
+    >
+      <input
+        name="mode"
+        type="radio"
+      />
+       
+      <span
+        class="fa fa-ellipsis-h"
+      />
+    </label>
+  </div>
+   
+  <div
+    class="viewport"
+  >
+    <table
+      class="table table-striped"
+    >
+      <thead>
+        <tr>
+          <th>
+            Date
+          </th>
+           
+          <th>
+            Message
+          </th>
+           
+          <th>
+            Author
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody>
+        <tr>
+          <td
+            colspan="3"
+          >
+            
+        No history entry yet.
+      
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Global component With History 1`] = `
+<div
+  class="history-viewer"
+>
+  <div
+    class="btn-group"
+    data-toggle="buttons"
+  >
+    <label
+      class="btn btn-default active"
+    >
+      <input
+        name="mode"
+        type="radio"
+      />
+       
+      <span
+        class="fa fa-table"
+      />
+    </label>
+     
+    <label
+      class="btn btn-default"
+    >
+      <input
+        name="mode"
+        type="radio"
+      />
+       
+      <span
+        class="fas fa-ellipsis-v"
+      />
+    </label>
+     
+    <label
+      class="btn btn-default"
+    >
+      <input
+        name="mode"
+        type="radio"
+      />
+       
+      <span
+        class="fa fa-ellipsis-h"
+      />
+    </label>
+  </div>
+   
+  <div
+    class="viewport"
+  >
+    <table
+      class="table table-striped"
+    >
+      <thead>
+        <tr>
+          <th>
+            Date
+          </th>
+           
+          <th>
+            Message
+          </th>
+           
+          <th>
+            Author
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody>
+        <tr>
+          <td
+            colspan="3"
+          >
+            
+        No history entry yet.
+      
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Table No History 1`] = `
+<table
+  class="table table-striped"
+>
+  <thead>
+    <tr>
+      <th>
+        Date
+      </th>
+       
+      <th>
+        Message
+      </th>
+       
+      <th>
+        Author
+      </th>
+    </tr>
+  </thead>
+   
+  <tbody>
+    <tr>
+      <td
+        colspan="3"
+      >
+        
+        No history entry yet.
+      
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots Table With History 1`] = `
+<table
+  class="table table-striped"
+>
+  <thead>
+    <tr>
+      <th>
+        Date
+      </th>
+       
+      <th>
+        Message
+      </th>
+       
+      <th>
+        Author
+      </th>
+    </tr>
+  </thead>
+   
+  <tbody>
+    <tr>
+      <td>
+        06/04/2021 16:23
+      </td>
+       
+      <td>
+        Ut molestiae aliquam tenetur est veritatis dolorum tempora. Eaque similique et qui ea consequatur illum dignissimos. Ullam qui vel qui quo. Ea dolor quasi quibusdam quia illum sunt aspernatur. Eveniet odio quos ad.
+      </td>
+       
+      <td>
+        John Doe
+      </td>
+    </tr>
+    <tr>
+      <td>
+        03/04/2021 16:23
+      </td>
+       
+      <td>
+        Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium. Sit facilis vitae sapiente. Placeat est qui et.
+      </td>
+       
+      <td>
+        Alice Smith
+      </td>
+    </tr>
+    <tr>
+      <td>
+        01/04/2021 08:23
+      </td>
+       
+      <td>
+        Corrupti reiciendis laboriosam repellat adipisci quis. Iure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.
+      </td>
+       
+      <td>
+        Bob Martin
+      </td>
+    </tr>
+    <tr>
+      <td>
+        28/03/2021 10:00
+      </td>
+       
+      <td>
+        Sed et aut recusandae magni. Et aperiam dolores tempora. Eum et enim quia amet maxime quaerat earum. Quam fuga odit alias. Et repellendus accusantium corporis. Nihil et harum tenetur dolorum cum qui.
+      </td>
+       
+      <td>
+        John Doe
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots Timeline Horizontal 1`] = `
+<div>
+  <ul
+    class="timeline timeline-horizontal"
+  >
+    <li
+      class="timeline-item"
+    >
+      <div
+        class="timeline-badge"
+      />
+       
+      <div
+        class="timeline-panel"
+      >
+        <div
+          class="timeline-heading"
+        >
+          <h3
+            class="h4"
+          >
+            <span
+              class="glyphicon glyphicon-time"
+            />
+            
+            06/04/2021 16:23
+            -
+            
+            <span
+              class="glyphicon glyphicon-user"
+            />
+            
+            John Doe
+          
+          </h3>
+        </div>
+         
+        <div
+          class="timeline-body"
+        >
+          <p>
+            Ut molestiae aliquam tenetur est veritatis dolorum tempora. Eaque similique et qui ea consequatur illum dignissimos. Ullam qui vel qui quo. Ea dolor quasi quibusdam quia illum sunt aspernatur. Eveniet odio quos ad.
+          </p>
+        </div>
+      </div>
+    </li>
+    <li
+      class="timeline-item"
+    >
+      <div
+        class="timeline-badge"
+      />
+       
+      <div
+        class="timeline-panel"
+      >
+        <div
+          class="timeline-heading"
+        >
+          <h3
+            class="h4"
+          >
+            <span
+              class="glyphicon glyphicon-time"
+            />
+            
+            03/04/2021 16:23
+            -
+            
+            <span
+              class="glyphicon glyphicon-user"
+            />
+            
+            Alice Smith
+          
+          </h3>
+        </div>
+         
+        <div
+          class="timeline-body"
+        >
+          <p>
+            Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium. Sit facilis vitae sapiente. Placeat est qui et.
+          </p>
+        </div>
+      </div>
+    </li>
+    <li
+      class="timeline-item"
+    >
+      <div
+        class="timeline-badge"
+      />
+       
+      <div
+        class="timeline-panel"
+      >
+        <div
+          class="timeline-heading"
+        >
+          <h3
+            class="h4"
+          >
+            <span
+              class="glyphicon glyphicon-time"
+            />
+            
+            01/04/2021 08:23
+            -
+            
+            <span
+              class="glyphicon glyphicon-user"
+            />
+            
+            Bob Martin
+          
+          </h3>
+        </div>
+         
+        <div
+          class="timeline-body"
+        >
+          <p>
+            Corrupti reiciendis laboriosam repellat adipisci quis. Iure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.
+          </p>
+        </div>
+      </div>
+    </li>
+    <li
+      class="timeline-item"
+    >
+      <div
+        class="timeline-badge"
+      />
+       
+      <div
+        class="timeline-panel"
+      >
+        <div
+          class="timeline-heading"
+        >
+          <h3
+            class="h4"
+          >
+            <span
+              class="glyphicon glyphicon-time"
+            />
+            
+            28/03/2021 10:00
+            -
+            
+            <span
+              class="glyphicon glyphicon-user"
+            />
+            
+            John Doe
+          
+          </h3>
+        </div>
+         
+        <div
+          class="timeline-body"
+        >
+          <p>
+            Sed et aut recusandae magni. Et aperiam dolores tempora. Eum et enim quia amet maxime quaerat earum. Quam fuga odit alias. Et repellendus accusantium corporis. Nihil et harum tenetur dolorum cum qui.
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Storyshots Timeline No History 1`] = `
+<div>
+  <p>
+    
+    No history entry yet.
+  
+  </p>
+</div>
+`;
+
+exports[`Storyshots Timeline Vertical 1`] = `
+<div>
+  <ul
+    class="timeline"
+  >
+    <li
+      class="timeline-item"
+    >
+      <div
+        class="timeline-badge"
+      />
+       
+      <div
+        class="timeline-panel"
+      >
+        <div
+          class="timeline-heading"
+        >
+          <h3
+            class="h4"
+          >
+            <span
+              class="glyphicon glyphicon-time"
+            />
+            
+            06/04/2021 16:23
+            -
+            
+            <span
+              class="glyphicon glyphicon-user"
+            />
+            
+            John Doe
+          
+          </h3>
+        </div>
+         
+        <div
+          class="timeline-body"
+        >
+          <p>
+            Ut molestiae aliquam tenetur est veritatis dolorum tempora. Eaque similique et qui ea consequatur illum dignissimos. Ullam qui vel qui quo. Ea dolor quasi quibusdam quia illum sunt aspernatur. Eveniet odio quos ad.
+          </p>
+        </div>
+      </div>
+    </li>
+    <li
+      class="timeline-item"
+    >
+      <div
+        class="timeline-badge"
+      />
+       
+      <div
+        class="timeline-panel"
+      >
+        <div
+          class="timeline-heading"
+        >
+          <h3
+            class="h4"
+          >
+            <span
+              class="glyphicon glyphicon-time"
+            />
+            
+            03/04/2021 16:23
+            -
+            
+            <span
+              class="glyphicon glyphicon-user"
+            />
+            
+            Alice Smith
+          
+          </h3>
+        </div>
+         
+        <div
+          class="timeline-body"
+        >
+          <p>
+            Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium. Sit facilis vitae sapiente. Placeat est qui et.
+          </p>
+        </div>
+      </div>
+    </li>
+    <li
+      class="timeline-item"
+    >
+      <div
+        class="timeline-badge"
+      />
+       
+      <div
+        class="timeline-panel"
+      >
+        <div
+          class="timeline-heading"
+        >
+          <h3
+            class="h4"
+          >
+            <span
+              class="glyphicon glyphicon-time"
+            />
+            
+            01/04/2021 08:23
+            -
+            
+            <span
+              class="glyphicon glyphicon-user"
+            />
+            
+            Bob Martin
+          
+          </h3>
+        </div>
+         
+        <div
+          class="timeline-body"
+        >
+          <p>
+            Corrupti reiciendis laboriosam repellat adipisci quis. Iure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.
+          </p>
+        </div>
+      </div>
+    </li>
+    <li
+      class="timeline-item"
+    >
+      <div
+        class="timeline-badge"
+      />
+       
+      <div
+        class="timeline-panel"
+      >
+        <div
+          class="timeline-heading"
+        >
+          <h3
+            class="h4"
+          >
+            <span
+              class="glyphicon glyphicon-time"
+            />
+            
+            28/03/2021 10:00
+            -
+            
+            <span
+              class="glyphicon glyphicon-user"
+            />
+            
+            John Doe
+          
+          </h3>
+        </div>
+         
+        <div
+          class="timeline-body"
+        >
+          <p>
+            Sed et aut recusandae magni. Et aperiam dolores tempora. Eum et enim quia amet maxime quaerat earum. Quam fuga odit alias. Et repellendus accusantium corporis. Nihil et harum tenetur dolorum cum qui.
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;

@@ -129,6 +129,7 @@ npm run build
 Commands available:
  - `npm run build` builds the frontend component to `osis_history/static/osis_history`
  - `npm run watch` builds the frontend component to `osis_history/static/osis_history` and watch for file changes (warning: this not a hot-reload, you have to refresh your page)
- - `npm run serve` serve a basic page for development, that can be used for easier coding:
-   - the html is served from `frontend/index.html`
-   - the requests are mocked from `frontend/mock.js`
+ - `npm run storybook` serve user stories page for development
+ - `npm run lint` checks Javascript syntax
+ - `npm run test` launch tests
+ - `npm run coverage` launch tests with coverage
