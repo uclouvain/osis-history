@@ -61,8 +61,19 @@
       </label>
     </div>
     <div class="viewport">
+      <span
+          v-if="loading"
+          class="spinner"
+      />
+      <span
+          v-else-if="error"
+          class="text-danger"
+      >
+        {{ error }}
+      </span>
       <component
           :is="mode"
+          v-else
           :entries="entries"
           :horizontal="horizontal"
       />
@@ -83,7 +94,7 @@ export default {
   props: {
     url: {
       type: String,
-      default: '',
+      required: true,
     },
   },
   data () {
@@ -91,13 +102,22 @@ export default {
       mode: 'Table',
       horizontal: false,
       entries: [],
+      error: '',
+      loading: true,
     };
   },
   async mounted () {
-    if (this.url) {
+    try {
       const response = await fetch(this.url);
-      this.entries = await response.json();
+      if (response.status === 200) {
+        this.entries = await response.json();
+      } else {
+        this.error = response.statusText;
+      }
+    } catch (e) {
+      this.error = e;
     }
+    this.loading = false;
   },
 };
 </script>
@@ -106,5 +126,16 @@ export default {
 .history-viewer .viewport {
   margin-top: 1em;
   overflow-x: scroll;
+}
+
+.history-viewer .spinner {
+  display: block;
+  margin: 0 auto;
+  border: 3px solid #286090;
+  border-top-color: transparent;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1.5s linear infinite;
 }
 </style>

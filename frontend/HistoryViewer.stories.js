@@ -46,9 +46,26 @@ const mockEntries = [{
 }];
 
 export const noHistory = () => {
+  fetchMock.restore().mock('/test', []);
   return {
     components: { HistoryViewer },
-    template: '<HistoryViewer/>',
+    template: '<HistoryViewer url="/test"/>',
+  };
+};
+
+export const httpError = () => {
+  fetchMock.restore().mock('/test', 404);
+  return {
+    components: { HistoryViewer },
+    template: '<HistoryViewer url="/test"/>',
+  };
+};
+
+export const exception = () => {
+  fetchMock.restore().mock('/test', { throws: new Error('Some network error') });
+  return {
+    components: { HistoryViewer },
+    template: '<HistoryViewer url="/test"/>',
   };
 };
 

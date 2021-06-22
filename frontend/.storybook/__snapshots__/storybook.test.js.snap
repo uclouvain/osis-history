@@ -1,5 +1,121 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Global component Exception 1`] = `
+<div
+  class="history-viewer"
+>
+  <div
+    class="btn-group"
+    data-toggle="buttons"
+  >
+    <label
+      class="btn btn-default active"
+    >
+      <input
+        name="mode"
+        type="radio"
+      />
+       
+      <span
+        class="fa fa-table"
+      />
+    </label>
+     
+    <label
+      class="btn btn-default"
+    >
+      <input
+        name="mode"
+        type="radio"
+      />
+       
+      <span
+        class="fas fa-ellipsis-v"
+      />
+    </label>
+     
+    <label
+      class="btn btn-default"
+    >
+      <input
+        name="mode"
+        type="radio"
+      />
+       
+      <span
+        class="fa fa-ellipsis-h"
+      />
+    </label>
+  </div>
+   
+  <div
+    class="viewport"
+  >
+    <span
+      class="spinner"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Global component Http Error 1`] = `
+<div
+  class="history-viewer"
+>
+  <div
+    class="btn-group"
+    data-toggle="buttons"
+  >
+    <label
+      class="btn btn-default active"
+    >
+      <input
+        name="mode"
+        type="radio"
+      />
+       
+      <span
+        class="fa fa-table"
+      />
+    </label>
+     
+    <label
+      class="btn btn-default"
+    >
+      <input
+        name="mode"
+        type="radio"
+      />
+       
+      <span
+        class="fas fa-ellipsis-v"
+      />
+    </label>
+     
+    <label
+      class="btn btn-default"
+    >
+      <input
+        name="mode"
+        type="radio"
+      />
+       
+      <span
+        class="fa fa-ellipsis-h"
+      />
+    </label>
+  </div>
+   
+  <div
+    class="viewport"
+  >
+    <span
+      class="spinner"
+    />
+  </div>
+</div>
+`;
+
 exports[`Storyshots Global component No History 1`] = `
 <div
   class="history-viewer"
@@ -51,37 +167,9 @@ exports[`Storyshots Global component No History 1`] = `
   <div
     class="viewport"
   >
-    <table
-      class="table table-striped"
-    >
-      <thead>
-        <tr>
-          <th>
-            Date
-          </th>
-           
-          <th>
-            Message
-          </th>
-           
-          <th>
-            Author
-          </th>
-        </tr>
-      </thead>
-       
-      <tbody>
-        <tr>
-          <td
-            colspan="3"
-          >
-            
-        No history entry yet.
-      
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <span
+      class="spinner"
+    />
   </div>
 </div>
 `;
@@ -137,37 +225,9 @@ exports[`Storyshots Global component With History 1`] = `
   <div
     class="viewport"
   >
-    <table
-      class="table table-striped"
-    >
-      <thead>
-        <tr>
-          <th>
-            Date
-          </th>
-           
-          <th>
-            Message
-          </th>
-           
-          <th>
-            Author
-          </th>
-        </tr>
-      </thead>
-       
-      <tbody>
-        <tr>
-          <td
-            colspan="3"
-          >
-            
-        No history entry yet.
-      
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <span
+      class="spinner"
+    />
   </div>
 </div>
 `;
