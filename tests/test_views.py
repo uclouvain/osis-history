@@ -56,7 +56,7 @@ class HistoryApiTestCase(TestCase):
         }
         # Create 3 history entries related to the same instance
         HistoryEntry.objects.create(**cls.history_entry_data)
-        HistoryEntry.objects.create(**cls.history_entry_data)
+        HistoryEntry.objects.create(**cls.history_entry_data, tags=['foo', 'bar'])
         entry = HistoryEntry.objects.create(**cls.history_entry_data)
         cls.created = entry.created
         cls.list_url = reverse("history-test", args=[cls.dumb_instance.uuid])
@@ -78,6 +78,7 @@ class HistoryApiTestCase(TestCase):
         self.client.force_login(self.user)
         response = self.client.get(self.list_url)
         self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.data), 3)
         self.assertEqual(response.data[0]["message"], self.history_entry_data["message_en"])
 
     def test_list_api_view_returns_no_results_if_given_uuid_is_not_found(self):
@@ -89,3 +90,10 @@ class HistoryApiTestCase(TestCase):
         response = self.client.get(list_url)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.data), 0)
+
+    def test_list_api_view_returns_filtered_by_tag(self):
+        self.client.force_login(self.user)
+        response = self.client.get(self.list_url, {'tags': 'foo'})
+        self.assertEqual(response.status_code, 200)
+        # We must get back one history entry
+        self.assertEqual(len(response.data), 1)

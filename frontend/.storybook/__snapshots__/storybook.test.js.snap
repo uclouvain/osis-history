@@ -58,6 +58,64 @@ exports[`Storyshots Global component Exception 1`] = `
 </div>
 `;
 
+exports[`Storyshots Global component Filtering On Tag 1`] = `
+<div
+  class="history-viewer"
+>
+  <div
+    class="btn-group"
+    data-toggle="buttons"
+  >
+    <label
+      class="btn btn-default active"
+    >
+      <input
+        name="mode"
+        type="radio"
+      />
+       
+      <span
+        class="fa fa-table"
+      />
+    </label>
+     
+    <label
+      class="btn btn-default"
+    >
+      <input
+        name="mode"
+        type="radio"
+      />
+       
+      <span
+        class="fas fa-ellipsis-v"
+      />
+    </label>
+     
+    <label
+      class="btn btn-default"
+    >
+      <input
+        name="mode"
+        type="radio"
+      />
+       
+      <span
+        class="fa fa-ellipsis-h"
+      />
+    </label>
+  </div>
+   
+  <div
+    class="viewport"
+  >
+    <span
+      class="spinner"
+    />
+  </div>
+</div>
+`;
+
 exports[`Storyshots Global component Http Error 1`] = `
 <div
   class="history-viewer"

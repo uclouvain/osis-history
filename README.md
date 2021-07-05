@@ -102,6 +102,8 @@ Then to render the widget for an object, include the CSS and JS file while addin
 {% endblock %}
 ```
 
+You can filter based on tags by providing the data attribute with comma-separated values: `data-tags="foo,bar"`
+
 Retrieve the full 'raw' history entries
 ---------------------------------------
 

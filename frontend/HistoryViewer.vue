@@ -96,6 +96,10 @@ export default {
       type: String,
       required: true,
     },
+    tags: {
+      type: String,
+      default: '',
+    },
   },
   data () {
     return {
@@ -108,7 +112,7 @@ export default {
   },
   async mounted () {
     try {
-      const response = await fetch(this.url);
+      const response = await fetch(`${this.url}${this.tags ? '?tags=' + this.tags : ''}`);
       if (response.status === 200) {
         this.entries = await response.json();
       } else {

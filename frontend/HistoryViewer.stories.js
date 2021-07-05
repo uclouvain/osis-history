@@ -77,6 +77,14 @@ export const withHistory = () => {
   };
 };
 
+export const filteringOnTag = () => {
+  fetchMock.restore().mock('/test?tags=foo', mockEntries);
+  return {
+    components: { HistoryViewer },
+    template: '<HistoryViewer url="/test" tags="foo"/>',
+  };
+};
+
 export default {
   title: 'Global component',
 };
