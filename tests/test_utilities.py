@@ -27,6 +27,18 @@ class UtilitiesTest(TestCase):
         history_entries = get_history_entries(self.dummy_instance.uuid)
         self.assertEqual(len(history_entries), 2)
 
+    def test_get_history_entries_filtered_by_tag(self):
+        history_entries = get_history_entries(self.dummy_instance.uuid)
+        self.assertEqual(len(history_entries), 1)
+        # Create an other history entry on the fly
+        HistoryEntry.objects.create(**self.history_entry_data, tags=['bar'])
+        history_entries = get_history_entries(self.dummy_instance.uuid)
+        self.assertEqual(len(history_entries), 2)
+        history_entries = get_history_entries(self.dummy_instance.uuid, tags=['bar'])
+        self.assertEqual(len(history_entries), 1)
+        history_entries = get_history_entries(self.dummy_instance.uuid, tags=['bar', 'foo'])
+        self.assertEqual(len(history_entries), 0)
+
     def test_add_history_entry_creation(self):
         add_history_entry(**self.history_entry_data)
         dummy_instance_history_entries = HistoryEntry.objects.filter(

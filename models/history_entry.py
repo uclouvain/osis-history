@@ -1,3 +1,4 @@
+from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -10,6 +11,12 @@ class HistoryEntry(models.Model):
     message_en = models.TextField(verbose_name=_("Message in english"))
     created = models.DateTimeField(verbose_name=_("Created"), auto_now_add=True)
     author = models.CharField(verbose_name=_("Author"), max_length=255)
+    tags = ArrayField(
+        models.CharField(max_length=50),
+        verbose_name=_("Tags"),
+        blank=True,
+        default=list,
+    )
 
     class Meta:
         verbose_name = _("History entry")
