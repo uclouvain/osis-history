@@ -10,12 +10,19 @@ Requirements
 How to install ?
 ================
 
-Install requirements
---------------------
-Using pip:
+## For production
 
+```bash
+# From your osis install, with python environment activated
+pip install git+https://github.com/uclouvain/osis-history.git@dev#egg=osis_history
 ```
-$ pip install -r requirements.txt
+
+## For development
+
+```bash
+# From your osis install, with python environment activated
+git clone git@github.com:uclouvain/osis-history.git
+pip install -e ./osis-history
 ```
 
 Configuring Django
