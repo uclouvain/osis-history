@@ -24,7 +24,7 @@
  *
  */
 module.exports = {
-  outputDir: "static/osis_history",
+  outputDir: "osis_history/static/osis_history",
   configureWebpack(config) {
     // Removes demo.html
     config.plugins.some((plugin, index) => {
