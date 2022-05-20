@@ -46,9 +46,10 @@
               {{ entry.author }}
             </h3>
           </div>
-          <div class="timeline-body">
-            <p>{{ entry.message }}</p>
-          </div>
+          <div
+              class="timeline-body"
+              :inner-html.prop="entry.message|linebreaks"
+          />
         </div>
       </li>
     </ul>
@@ -71,7 +72,7 @@ export default {
       default: false,
     },
   },
-}
+};
 </script>
 
 <style lang="scss">
@@ -153,7 +154,7 @@ export default {
 
           + {
             p {
-              margin-top: 5px;
+              margin-top: 1em;
             }
           }
         }

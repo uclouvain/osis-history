@@ -38,7 +38,7 @@
           :key="index"
       >
         <td>{{ entry.created }}</td>
-        <td>{{ entry.message }}</td>
+        <td :inner-html.prop="entry.message|linebreaks" />
         <td>{{ entry.author }}</td>
       </tr>
     </tbody>
