@@ -27,6 +27,19 @@ import Vue from 'vue';
 import HistoryViewer from './HistoryViewer';
 import { i18n } from './i18n';
 
+Vue.filter('linebreaks', function (value) {
+  if (!value) return '';
+  const paragraphs = value.toString()
+    // replace newlines (CR and CRLF with only LF)
+    .replace(/\r\n|\r/g, '\n')
+    // escape tags
+    .replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    // split double newlines to paragraphs
+    .split(/\n{2,}/g);
+  // replace simple newlines with <br> and join with element with <p>
+  return paragraphs.map(p => '<p>' + p.replace(/\n/g, '<br />') + '</p>', '').join('\n\n');
+});
+
 document.querySelectorAll('.history-viewer').forEach((elem) => {
   new Vue({
     render: (h) => h(HistoryViewer, { props: elem.dataset }),
