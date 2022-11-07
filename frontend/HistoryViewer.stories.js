@@ -26,6 +26,10 @@
 
 import HistoryViewer from './HistoryViewer';
 import fetchMock from 'fetch-mock';
+import Vue from 'vue';
+import { filterXssAndFormat } from './utils';
+
+Vue.filter('linebreaks', filterXssAndFormat);
 
 const mockEntries = [{
   author: 'John Doe',
@@ -34,15 +38,15 @@ const mockEntries = [{
 }, {
   author: 'Alice Smith',
   created: '03/04/2021 16:23',
-  message: 'Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium. Sit facilis vitae sapiente. Placeat est qui et.',
+  message: 'Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium.\nSit facilis vitae sapiente. Placeat est qui et.',
 }, {
   author: 'Bob Martin',
   created: '01/04/2021 08:23',
-  message: 'Corrupti reiciendis laboriosam repellat adipisci quis. Iure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.',
+  message: 'Corrupti <strong>reiciendis</strong> laboriosam repellat adipisci quis.\n\nIure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.',
 }, {
   author: 'John Doe',
   created: '28/03/2021 10:00',
-  message: 'Sed et aut recusandae magni. Et aperiam dolores tempora. Eum et enim quia amet maxime quaerat earum. Quam fuga odit alias. Et repellendus accusantium corporis. Nihil et harum tenetur dolorum cum qui.',
+  message: '',
 }];
 
 export const noHistory = () => {

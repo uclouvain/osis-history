@@ -76,6 +76,8 @@
           v-else
           :entries="entries"
           :horizontal="horizontal"
+          :on-item-render="mode === 'Table' ? onItemRenderTable : (horizontal ? onItemRenderHorizontalTimeline : onItemRenderVerticalTimeline)"
+          :on-headers-render="onHeadersRenderTable"
       />
     </div>
   </div>
@@ -99,6 +101,22 @@ export default {
     tags: {
       type: String,
       default: '',
+    },
+    onItemRenderTable: {
+      type: Function,
+      default: null,
+    },
+    onHeadersRenderTable: {
+      type: Function,
+      default: null,
+    },
+    onItemRenderHorizontalTimeline: {
+      type: Function,
+      default: null,
+    },
+    onItemRenderVerticalTimeline: {
+      type: Function,
+      default: null,
     },
   },
   data () {

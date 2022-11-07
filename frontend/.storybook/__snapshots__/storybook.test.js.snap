@@ -290,6 +290,43 @@ exports[`Storyshots Global component With History 1`] = `
 </div>
 `;
 
+exports[`Storyshots Table Dynamic 1`] = `
+<table
+  class="table table-striped"
+>
+  <thead>
+    <tr>
+      <th>
+        Foo
+      </th>
+    </tr>
+  </thead>
+   
+  <tbody>
+    <tr>
+      <td>
+        Ut molestiae aliquam tenetur est veritatis dolorum tempora. Eaque similique et qui ea consequatur illum dignissimos. Ullam qui vel qui quo. Ea dolor quasi quibusdam quia illum sunt aspernatur. Eveniet odio quos ad.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium. Sit facilis vitae sapiente. Placeat est qui et.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Corrupti reiciendis laboriosam repellat adipisci quis. Iure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Sed et aut recusandae magni. Et aperiam dolores tempora. Eum et enim quia amet maxime quaerat earum. Quam fuga odit alias. Et repellendus accusantium corporis. Nihil et harum tenetur dolorum cum qui.
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
 exports[`Storyshots Table No History 1`] = `
 <table
   class="table table-striped"
@@ -351,7 +388,9 @@ exports[`Storyshots Table With History 1`] = `
       </td>
        
       <td>
-        Ut molestiae aliquam tenetur est veritatis dolorum tempora. Eaque similique et qui ea consequatur illum dignissimos. Ullam qui vel qui quo. Ea dolor quasi quibusdam quia illum sunt aspernatur. Eveniet odio quos ad.
+        <p>
+          Ut molestiae aliquam tenetur est veritatis dolorum tempora. Eaque similique et qui ea consequatur illum dignissimos. Ullam qui vel qui quo. Ea dolor quasi quibusdam quia illum sunt aspernatur. Eveniet odio quos ad.
+        </p>
       </td>
        
       <td>
@@ -364,7 +403,9 @@ exports[`Storyshots Table With History 1`] = `
       </td>
        
       <td>
-        Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium. Sit facilis vitae sapiente. Placeat est qui et.
+        <p>
+          Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium. Sit facilis vitae sapiente. Placeat est qui et.
+        </p>
       </td>
        
       <td>
@@ -377,7 +418,9 @@ exports[`Storyshots Table With History 1`] = `
       </td>
        
       <td>
-        Corrupti reiciendis laboriosam repellat adipisci quis. Iure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.
+        <p>
+          Corrupti reiciendis laboriosam repellat adipisci quis. Iure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.
+        </p>
       </td>
        
       <td>
@@ -390,7 +433,9 @@ exports[`Storyshots Table With History 1`] = `
       </td>
        
       <td>
-        Sed et aut recusandae magni. Et aperiam dolores tempora. Eum et enim quia amet maxime quaerat earum. Quam fuga odit alias. Et repellendus accusantium corporis. Nihil et harum tenetur dolorum cum qui.
+        <p>
+          Sed et aut recusandae magni. Et aperiam dolores tempora. Eum et enim quia amet maxime quaerat earum. Quam fuga odit alias. Et repellendus accusantium corporis. Nihil et harum tenetur dolorum cum qui.
+        </p>
       </td>
        
       <td>
@@ -399,6 +444,86 @@ exports[`Storyshots Table With History 1`] = `
     </tr>
   </tbody>
 </table>
+`;
+
+exports[`Storyshots Timeline Dynamic Horizontal 1`] = `
+<div>
+  <ul
+    class="timeline timeline-horizontal"
+  >
+    <li>
+      <strong>
+        John Doe: 
+      </strong>
+       Ut molestiae aliquam tenetur est veritatis dolorum tempora. Eaque similique et qui ea consequatur illum dignissimos. Ullam qui vel qui quo. Ea dolor quasi quibusdam quia illum sunt aspernatur. Eveniet odio quos ad.
+    </li>
+    <li>
+      <strong>
+        Alice Smith: 
+      </strong>
+       Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium.
+Sit facilis vitae sapiente. Placeat est qui et.
+    </li>
+    <li>
+      <strong>
+        Bob Martin: 
+      </strong>
+       Corrupti 
+      <strong>
+        reiciendis
+      </strong>
+       laboriosam repellat adipisci quis.
+
+Iure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.
+    </li>
+    <li>
+      <strong>
+        John Doe: 
+      </strong>
+       Sed et aut recusandae magni. Et aperiam dolores tempora. Eum et enim quia amet maxime quaerat earum. Quam fuga odit alias. Et repellendus accusantium corporis. Nihil et harum tenetur dolorum cum qui.
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Storyshots Timeline Dynamic Vertical 1`] = `
+<div>
+  <ul
+    class="timeline"
+  >
+    <li>
+      <strong>
+        John Doe: 
+      </strong>
+       Ut molestiae aliquam tenetur est veritatis dolorum tempora. Eaque similique et qui ea consequatur illum dignissimos. Ullam qui vel qui quo. Ea dolor quasi quibusdam quia illum sunt aspernatur. Eveniet odio quos ad.
+    </li>
+    <li>
+      <strong>
+        Alice Smith: 
+      </strong>
+       Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium.
+Sit facilis vitae sapiente. Placeat est qui et.
+    </li>
+    <li>
+      <strong>
+        Bob Martin: 
+      </strong>
+       Corrupti 
+      <strong>
+        reiciendis
+      </strong>
+       laboriosam repellat adipisci quis.
+
+Iure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.
+    </li>
+    <li>
+      <strong>
+        John Doe: 
+      </strong>
+       Sed et aut recusandae magni. Et aperiam dolores tempora. Eum et enim quia amet maxime quaerat earum. Quam fuga odit alias. Et repellendus accusantium corporis. Nihil et harum tenetur dolorum cum qui.
+    </li>
+  </ul>
+</div>
 `;
 
 exports[`Storyshots Timeline Horizontal 1`] = `
@@ -483,7 +608,9 @@ exports[`Storyshots Timeline Horizontal 1`] = `
           class="timeline-body"
         >
           <p>
-            Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium. Sit facilis vitae sapiente. Placeat est qui et.
+            Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium.
+            <br />
+            Sit facilis vitae sapiente. Placeat est qui et.
           </p>
         </div>
       </div>
@@ -524,7 +651,13 @@ exports[`Storyshots Timeline Horizontal 1`] = `
           class="timeline-body"
         >
           <p>
-            Corrupti reiciendis laboriosam repellat adipisci quis. Iure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.
+            Corrupti &lt;strong&gt;reiciendis&lt;/strong&gt; laboriosam repellat adipisci quis.
+          </p>
+          
+
+
+          <p>
+            Iure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.
           </p>
         </div>
       </div>
@@ -666,7 +799,9 @@ exports[`Storyshots Timeline Vertical 1`] = `
           class="timeline-body"
         >
           <p>
-            Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium. Sit facilis vitae sapiente. Placeat est qui et.
+            Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium.
+            <br />
+            Sit facilis vitae sapiente. Placeat est qui et.
           </p>
         </div>
       </div>
@@ -707,7 +842,13 @@ exports[`Storyshots Timeline Vertical 1`] = `
           class="timeline-body"
         >
           <p>
-            Corrupti reiciendis laboriosam repellat adipisci quis. Iure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.
+            Corrupti &lt;strong&gt;reiciendis&lt;/strong&gt; laboriosam repellat adipisci quis.
+          </p>
+          
+
+
+          <p>
+            Iure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.
           </p>
         </div>
       </div>

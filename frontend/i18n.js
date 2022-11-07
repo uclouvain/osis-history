@@ -40,7 +40,7 @@ const messages = {
     date: 'Date',
     message: 'Message',
     author: 'Auteur',
-    no_entry: "Aucun entrée d'historique pour le moment.",
+    no_entry: "Aucune entrée d'historique pour le moment.",
   },
 };
 export const i18n = new VueI18n({
