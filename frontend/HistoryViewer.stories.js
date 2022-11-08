@@ -89,6 +89,22 @@ export const filteringOnTag = () => {
   };
 };
 
+export const onlyOneMode = () => {
+  fetchMock.restore().mock('/test', mockEntries);
+  return {
+    components: { HistoryViewer },
+    template: `<HistoryViewer url="/test" :modes="['horizontal']"/>`,
+  };
+};
+
+export const twoModesWithDefault = () => {
+  fetchMock.restore().mock('/test', mockEntries);
+  return {
+    components: { HistoryViewer },
+    template: `<HistoryViewer url="/test" :modes="['horizontal', 'vertical']" default-mode="vertical"/>`,
+  };
+};
+
 export default {
   title: 'Global component',
 };

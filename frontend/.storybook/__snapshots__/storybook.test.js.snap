@@ -20,7 +20,6 @@ exports[`Storyshots Global component Exception 1`] = `
         class="fa fa-table"
       />
     </label>
-     
     <label
       class="btn btn-default"
     >
@@ -33,7 +32,6 @@ exports[`Storyshots Global component Exception 1`] = `
         class="fas fa-ellipsis-v"
       />
     </label>
-     
     <label
       class="btn btn-default"
     >
@@ -78,7 +76,6 @@ exports[`Storyshots Global component Filtering On Tag 1`] = `
         class="fa fa-table"
       />
     </label>
-     
     <label
       class="btn btn-default"
     >
@@ -91,7 +88,6 @@ exports[`Storyshots Global component Filtering On Tag 1`] = `
         class="fas fa-ellipsis-v"
       />
     </label>
-     
     <label
       class="btn btn-default"
     >
@@ -136,7 +132,6 @@ exports[`Storyshots Global component Http Error 1`] = `
         class="fa fa-table"
       />
     </label>
-     
     <label
       class="btn btn-default"
     >
@@ -149,7 +144,6 @@ exports[`Storyshots Global component Http Error 1`] = `
         class="fas fa-ellipsis-v"
       />
     </label>
-     
     <label
       class="btn btn-default"
     >
@@ -194,7 +188,6 @@ exports[`Storyshots Global component No History 1`] = `
         class="fa fa-table"
       />
     </label>
-     
     <label
       class="btn btn-default"
     >
@@ -207,7 +200,6 @@ exports[`Storyshots Global component No History 1`] = `
         class="fas fa-ellipsis-v"
       />
     </label>
-     
     <label
       class="btn btn-default"
     >
@@ -218,6 +210,66 @@ exports[`Storyshots Global component No History 1`] = `
        
       <span
         class="fa fa-ellipsis-h"
+      />
+    </label>
+  </div>
+   
+  <div
+    class="viewport"
+  >
+    <span
+      class="spinner"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Global component Only One Mode 1`] = `
+<div
+  class="history-viewer"
+>
+  <!---->
+   
+  <div
+    class="viewport"
+  >
+    <span
+      class="spinner"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Global component Two Modes With Default 1`] = `
+<div
+  class="history-viewer"
+>
+  <div
+    class="btn-group"
+    data-toggle="buttons"
+  >
+    <label
+      class="btn btn-default"
+    >
+      <input
+        name="mode"
+        type="radio"
+      />
+       
+      <span
+        class="fa fa-ellipsis-h"
+      />
+    </label>
+    <label
+      class="btn btn-default active"
+    >
+      <input
+        name="mode"
+        type="radio"
+      />
+       
+      <span
+        class="fas fa-ellipsis-v"
       />
     </label>
   </div>
@@ -252,7 +304,6 @@ exports[`Storyshots Global component With History 1`] = `
         class="fa fa-table"
       />
     </label>
-     
     <label
       class="btn btn-default"
     >
@@ -265,7 +316,6 @@ exports[`Storyshots Global component With History 1`] = `
         class="fas fa-ellipsis-v"
       />
     </label>
-     
     <label
       class="btn btn-default"
     >
