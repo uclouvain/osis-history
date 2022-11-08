@@ -26,7 +26,7 @@
 <template>
   <div>
     <ul
-        v-if="entries.length"
+        v-if="entries.length && !onItemRender"
         class="timeline"
         :class="{'timeline-horizontal': horizontal}"
     >
@@ -53,6 +53,12 @@
         </div>
       </li>
     </ul>
+    <ul
+        v-else-if="entries.length && onItemRender"
+        class="timeline"
+        :class="{'timeline-horizontal': horizontal}"
+        v-html="renderedItems.join('')"
+    />
     <p v-else>
       {{ $t('no_entry') }}
     </p>
@@ -71,6 +77,16 @@ export default {
       type: Boolean,
       default: false,
     },
+    onItemRender: {
+      type: Function,
+      default: null,
+    },
+  },
+  data: function () {
+    return {
+      // Render dynamically the list items
+      renderedItems: this.onItemRender ? this.entries.map(this.onItemRender) : [],
+    };
   },
 };
 </script>

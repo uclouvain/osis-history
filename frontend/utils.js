@@ -6,7 +6,7 @@
  *   The core business involves the administration of students, teachers,
  *   courses, programs and so on.
  *
- *   Copyright (C) 2015-2021 Université catholique de Louvain (http://www.uclouvain.be)
+ *   Copyright (C) 2015-2022 Université catholique de Louvain (http://www.uclouvain.be)
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -23,32 +23,16 @@
  *   see http://www.gnu.org/licenses/.
  *
  */
-import Vue from 'vue';
-import HistoryViewer from './HistoryViewer';
-import { i18n } from './i18n';
-import { filterXssAndFormat } from './utils';
 
-Vue.filter('linebreaks', filterXssAndFormat);
-
-document.querySelectorAll('.history-viewer').forEach((elem) => {
-  const props = { ...elem.dataset };
-  // Get the function from global scope
-  for (const propName of [
-    'onItemRenderTable',
-    'onHeadersRenderTable',
-    'onItemRenderHorizontalTimeline',
-    'onItemRenderVerticalTimeline',
-  ]) {
-    if (props[propName]) {
-      props[propName] = window[props[propName]];
-    }
-  }
-  new Vue({
-    render: (h) => h(HistoryViewer, { props }),
-    i18n,
-  }).$mount(elem);
-});
-
-export {
-  filterXssAndFormat,
-};
+export function filterXssAndFormat (value) {
+  if (!value) return '';
+  const paragraphs = value.toString()
+    // replace newlines (CR and CRLF with only LF)
+    .replace(/\r\n|\r/g, '\n')
+    // escape tags
+    .replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    // split double newlines to paragraphs
+    .split(/\n{2,}/g);
+  // replace simple newlines with <br> and join with element with <p>
+  return paragraphs.map(p => '<p>' + p.replace(/\n/g, '<br />') + '</p>', '').join('\n\n');
+}

@@ -25,6 +25,10 @@
  */
 
 import Timeline from './Timeline';
+import Vue from 'vue';
+import { filterXssAndFormat } from '../utils';
+
+Vue.filter('linebreaks', filterXssAndFormat);
 
 const mockEntries = [{
   author: 'John Doe',
@@ -33,11 +37,11 @@ const mockEntries = [{
 }, {
   author: 'Alice Smith',
   created: '03/04/2021 16:23',
-  message: 'Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium. Sit facilis vitae sapiente. Placeat est qui et.',
+  message: 'Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium.\nSit facilis vitae sapiente. Placeat est qui et.',
 }, {
   author: 'Bob Martin',
   created: '01/04/2021 08:23',
-  message: 'Corrupti reiciendis laboriosam repellat adipisci quis. Iure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.',
+  message: 'Corrupti <strong>reiciendis</strong> laboriosam repellat adipisci quis.\n\nIure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.',
 }, {
   author: 'John Doe',
   created: '28/03/2021 10:00',
@@ -59,6 +63,22 @@ horizontal.args = {
 export const vertical = Template.bind({});
 vertical.args = {
   entries: mockEntries,
+};
+export const dynamicVertical = Template.bind({});
+dynamicVertical.args = {
+  entries: mockEntries,
+  onItemRender: function (entry) {
+    return `<li><strong>${entry.author}: </strong> ${entry.message}</li>`;
+  },
+};
+
+export const dynamicHorizontal = Template.bind({});
+dynamicHorizontal.args = {
+  entries: mockEntries,
+  horizontal: true,
+  onItemRender: function (entry) {
+    return `<li><strong>${entry.author}: </strong> ${entry.message}</li>`;
+  },
 };
 
 export default {

@@ -24,24 +24,24 @@
  *
  */
 module.exports = {
-  outputDir: "osis_history/static/osis_history",
-  configureWebpack(config) {
+  outputDir: 'osis_history/static/osis_history',
+  configureWebpack (config) {
     // Removes demo.html
     config.plugins.some((plugin, index) => {
       return plugin.options?.filename === 'demo.html' ? config.plugins.splice(index, 1) : false;
     });
     return {
-      devServer: {
-        overlay: true,
-      },
       externals: {
         'vue-i18n': 'VueI18n',
+      },
+      output: {
+        library: 'OsisHistory',
       },
     };
   },
   filenameHashing: false,
   chainWebpack: config => {
-    config.plugins.delete('preload')
-    config.plugins.delete('prefetch')
+    config.plugins.delete('preload');
+    config.plugins.delete('prefetch');
   },
-}
+};

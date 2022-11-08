@@ -24,7 +24,10 @@
   -
   -->
 <template>
-  <table class="table table-striped">
+  <table
+      v-if="!onHeadersRender && !onItemRender"
+      class="table table-striped"
+  >
     <thead>
       <tr>
         <th>{{ $t('date') }}</th>
@@ -50,6 +53,13 @@
       </tr>
     </tbody>
   </table>
+  <table
+      v-else
+      class="table table-striped"
+  >
+    <thead v-html="renderedHeaders" />
+    <tbody v-html="renderedRows.join('')" />
+  </table>
 </template>
 
 <script>
@@ -60,6 +70,21 @@ export default {
       type: Array,
       default: () => [],
     },
+    onItemRender: {
+      type: Function,
+      default: null,
+    },
+    onHeadersRender: {
+      type: Function,
+      default: null,
+    },
+  },
+  data: function () {
+    return {
+      // Render dynamically the table headers and items
+      renderedHeaders: this.onHeadersRender ? this.onHeadersRender(this.entries) : '',
+      renderedRows: this.onItemRender ? this.entries.map(this.onItemRender) : [],
+    };
   },
 };
 </script>

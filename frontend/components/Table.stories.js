@@ -25,6 +25,10 @@
  */
 
 import Table from './Table';
+import Vue from 'vue';
+import { filterXssAndFormat } from '../utils';
+
+Vue.filter('linebreaks', filterXssAndFormat);
 
 const mockEntries = [{
   author: 'John Doe',
@@ -54,6 +58,16 @@ export const noHistory = Template.bind({});
 export const withHistory = Template.bind({});
 withHistory.args = {
   entries: mockEntries,
+};
+export const dynamic = Template.bind({});
+dynamic.args = {
+  entries: mockEntries,
+  onHeadersRender: function () {
+    return '<tr><th>Foo</th></tr>'
+  },
+  onItemRender: function (entry) {
+    return `<tr><td>${entry.message}</td></tr>`
+  },
 };
 
 export default {
