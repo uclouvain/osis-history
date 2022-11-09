@@ -19,6 +19,8 @@ class HistoryEntryListSerializer(serializers.ModelSerializer):
             "message",
             "created",
             "author",
+            "tags",
+            "extra_data",
         ]
 
     def get_message(self, obj):
