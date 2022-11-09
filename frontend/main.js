@@ -43,6 +43,9 @@ document.querySelectorAll('.history-viewer').forEach((elem) => {
       props[propName] = window[props[propName]];
     }
   }
+  if (props.modes) {
+    props.modes = props.modes.split(',');
+  }
   new Vue({
     render: (h) => h(HistoryViewer, { props }),
     i18n,

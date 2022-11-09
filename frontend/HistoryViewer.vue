@@ -26,39 +26,51 @@
 <template>
   <div class="history-viewer">
     <div
+        v-if="modes.length > 1"
         class="btn-group"
         data-toggle="buttons"
     >
-      <label
-          class="btn btn-default active"
-          @click="mode = 'Table'"
-      >
-        <input
-            type="radio"
-            name="mode"
+      <template v-for="buttonMode in modes">
+        <label
+            v-if="buttonMode === 'table'"
+            :key="buttonMode"
+            class="btn btn-default"
+            :class="{active: mode === 'Table'}"
+            @click="mode = 'Table'"
         >
-        <span class="fa fa-table" />
-      </label>
-      <label
-          class="btn btn-default"
-          @click="mode = 'Timeline'; horizontal = false;"
-      >
-        <input
-            type="radio"
-            name="mode"
+          <input
+              type="radio"
+              name="mode"
+          >
+          <span class="fa fa-table" />
+        </label>
+        <label
+            v-else-if="buttonMode === 'vertical'"
+            :key="buttonMode"
+            class="btn btn-default"
+            :class="{active: mode === 'Timeline' && horizontal === false}"
+            @click="mode = 'Timeline'; horizontal = false;"
         >
-        <span class="fas fa-ellipsis-v" />
-      </label>
-      <label
-          class="btn btn-default"
-          @click="mode = 'Timeline'; horizontal = true;"
-      >
-        <input
-            type="radio"
-            name="mode"
+          <input
+              type="radio"
+              name="mode"
+          >
+          <span class="fas fa-ellipsis-v" />
+        </label>
+        <label
+            v-else-if="buttonMode === 'horizontal'"
+            :key="buttonMode"
+            class="btn btn-default"
+            :class="{active: mode === 'Timeline' && horizontal === true}"
+            @click="mode = 'Timeline'; horizontal = true;"
         >
-        <span class="fa fa-ellipsis-h" />
-      </label>
+          <input
+              type="radio"
+              name="mode"
+          >
+          <span class="fa fa-ellipsis-h" />
+        </label>
+      </template>
     </div>
     <div class="viewport">
       <span
@@ -102,6 +114,14 @@ export default {
       type: String,
       default: '',
     },
+    modes: {
+      type: Array,
+      default: () => ['table', 'vertical', 'horizontal'],
+    },
+    defaultMode: {
+      type: String,
+      default: 'table',
+    },
     onItemRenderTable: {
       type: Function,
       default: null,
@@ -120,9 +140,13 @@ export default {
     },
   },
   data () {
+    let defaultMode = this.defaultMode;
+    if (!this.modes.includes(this.defaultMode)) {
+      defaultMode = this.modes[0];
+    }
     return {
-      mode: 'Table',
-      horizontal: false,
+      mode: defaultMode === 'table' ? 'Table' : 'Timeline',
+      horizontal: defaultMode === 'horizontal',
       entries: [],
       error: '',
       loading: true,
