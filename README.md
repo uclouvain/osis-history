@@ -71,7 +71,14 @@ To declare a history entry within a Django application:
 from osis_history.utilities import add_history_entry
 
 # Pass the object's uuid and both french and english messages to it :
-add_history_entry(my_object.uuid, french_message_as_string, english_message_as_string)
+add_history_entry(
+  my_object.uuid,  # an uuid 
+  "French message", 
+  "English message", 
+  "Author name",
+  tags=['tag1', 'tag2'],  # facultative
+  extra_data={'debug': True},  # facultative
+)
 ```
 
 Visualize history entries for an object
@@ -131,7 +138,7 @@ Then to render the widget for an object, include the CSS and JS file while addin
   ></div>
   <script>
   function customListRendering(entry) {
-    return `<li>${entry.author} (${entry.created}): ${OsisHistory.filterXssAndFormat(entry.message)}</li>`
+    return `<li>${entry.author} (${entry.created}): ${OsisHistory.filterXssAndFormat(entry.message)}${entry.extra_data.debug ? ' (debug)'}</li>`
   }
   </script>
   ```
@@ -154,6 +161,9 @@ A history entry will always return the following details :
 - date and time of entry creation
 - message in French
 - message in English
+- author
+- tags
+- extra_data
 
 Contributing to OSIS-History
 ============================

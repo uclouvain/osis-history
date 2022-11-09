@@ -25,7 +25,7 @@
   -->
 <template>
   <table
-      v-if="!onHeadersRender && !onItemRender"
+      v-if="(!onHeadersRender && (!onItemRender || !entries.length))"
       class="table table-striped"
   >
     <thead>

@@ -17,6 +17,11 @@ class HistoryEntry(models.Model):
         blank=True,
         default=list,
     )
+    extra_data = models.JSONField(
+        verbose_name=_("Extra data"),
+        blank=True,
+        default=dict,
+    )
 
     class Meta:
         verbose_name = _("History entry")
