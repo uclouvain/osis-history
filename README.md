@@ -124,6 +124,7 @@ Then to render the widget for an object, include the CSS and JS file while addin
 ### HTML data-attribute options
 
 - You can filter based on tags by providing the data attribute with comma-separated values: `data-tags="foo,bar"`
+- You can customize the rendering by passing the mode you want to display: `data-modes="table,horizontal" `data-default-mode="horizontal"``
 - You can customize the rendering of each mode by passing a function name available in the global scope:
   - `data-on-item-render-table` will receive an entry and must return a `<tr>` element to be displayed as table row
   - `data-on-headers-render-table` will receive the array of entries and must return a `<tr>` element to be displayed
