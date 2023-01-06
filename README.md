@@ -129,7 +129,7 @@ Then to render the widget for an object, include the CSS and JS file while addin
   - `data-on-headers-render-table` will receive the array of entries and must return a `<tr>` element to be displayed
   as table header
   - `data-on-item-render-horizontal-timeline` and `data-on-item-render-vertical-timeline` will receive an entry and 
-  must return a `<li>` element to be displayed as list item  
+  must return a `<li>` element to be displayed as list item
   ```html
   <div class="history-viewer"
        data-url="{% url 'admission:doctorate:history-api' uuid=view.kwargs.uuid %}"
@@ -142,6 +142,8 @@ Then to render the widget for an object, include the CSS and JS file while addin
   }
   </script>
   ```
+  - `data-on-history-empty-render` will receive the mode and must return a `<tr>` element if mode is `'table'` or any 
+  element otherwise to be displayed  
   **NB**: it is the responsibility of the rendering function to take care of XSS attacks, and adding the correct CSS classes.
   In order to do that, you may use the `OsisHistory.filterXssAndFormat()` function
 

@@ -32,12 +32,13 @@ Vue.filter('linebreaks', filterXssAndFormat);
 
 document.querySelectorAll('.history-viewer').forEach((elem) => {
   const props = { ...elem.dataset };
-  // Get the function from global scope
+  // Get the functions from global scope
   for (const propName of [
     'onItemRenderTable',
     'onHeadersRenderTable',
     'onItemRenderHorizontalTimeline',
     'onItemRenderVerticalTimeline',
+    'onHistoryEmptyRender',
   ]) {
     if (props[propName]) {
       props[propName] = window[props[propName]];

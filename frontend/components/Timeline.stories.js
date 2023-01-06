@@ -81,6 +81,15 @@ dynamicHorizontal.args = {
   },
 };
 
+export const dynamicEmptyHorizontal = Template.bind({});
+dynamicEmptyHorizontal.args = {
+  entries: [],
+  horizontal: true,
+  onHistoryEmptyRender: function () {
+    return `<p>No entry</p>`;
+  },
+};
+
 export default {
   title: 'Timeline',
 };

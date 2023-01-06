@@ -90,6 +90,7 @@
           :horizontal="horizontal"
           :on-item-render="mode === 'Table' ? onItemRenderTable : (horizontal ? onItemRenderHorizontalTimeline : onItemRenderVerticalTimeline)"
           :on-headers-render="onHeadersRenderTable"
+          :on-history-empty="onHeadersRenderTable"
       />
     </div>
   </div>
@@ -135,6 +136,10 @@ export default {
       default: null,
     },
     onItemRenderVerticalTimeline: {
+      type: Function,
+      default: null,
+    },
+    onHistoryEmptyRender: {
       type: Function,
       default: null,
     },

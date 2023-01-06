@@ -59,6 +59,10 @@
         :class="{'timeline-horizontal': horizontal}"
         v-html="renderedItems.join('')"
     />
+    <template
+        v-else-if="!entries.length && onHistoryEmptyRender"
+        v-html="renderedEmpty"
+    />
     <p v-else>
       {{ $t('no_entry') }}
     </p>
@@ -81,11 +85,17 @@ export default {
       type: Function,
       default: null,
     },
+    onHistoryEmptyRender: {
+      type: Function,
+      default: null,
+    },
   },
   data: function () {
+    const mode = this.horizontal ? 'horizontal' : 'vertical';
     return {
       // Render dynamically the list items
       renderedItems: this.onItemRender ? this.entries.map(this.onItemRender) : [],
+      renderedEmpty: this.onHistoryEmptyRender ? this.onHistoryEmptyRender(mode) : '',
     };
   },
 };
