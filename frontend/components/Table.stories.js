@@ -70,6 +70,14 @@ dynamic.args = {
   },
 };
 
+export const dynamicEmpty = Template.bind({});
+dynamicEmpty.args = {
+  entries: [],
+  onHistoryEmptyRender: function () {
+    return '<tr><td>No entry</td></tr>'
+  },
+};
+
 export default {
   title: 'Table',
 };

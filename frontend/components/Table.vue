@@ -58,7 +58,14 @@
       class="table table-striped"
   >
     <thead v-html="renderedHeaders" />
-    <tbody v-html="renderedRows.join('')" />
+    <tbody
+        v-if="entries.length"
+        v-html="renderedRows.join('')"
+    />
+    <tbody
+        v-else
+        v-html="renderedEmpty"
+    />
   </table>
 </template>
 
@@ -78,12 +85,17 @@ export default {
       type: Function,
       default: null,
     },
+    onHistoryEmptyRender: {
+      type: Function,
+      default: null,
+    },
   },
   data: function () {
     return {
       // Render dynamically the table headers and items
       renderedHeaders: this.onHeadersRender ? this.onHeadersRender(this.entries) : '',
       renderedRows: this.onItemRender ? this.entries.map(this.onItemRender) : [],
+      renderedEmpty: this.onHistoryEmptyRender ? this.onHistoryEmptyRender('table') : '',
     };
   },
 };

@@ -377,6 +377,40 @@ exports[`Storyshots Table Dynamic 1`] = `
 </table>
 `;
 
+exports[`Storyshots Table Dynamic Empty 1`] = `
+<table
+  class="table table-striped"
+>
+  <thead>
+    <tr>
+      <th>
+        Date
+      </th>
+       
+      <th>
+        Message
+      </th>
+       
+      <th>
+        Author
+      </th>
+    </tr>
+  </thead>
+   
+  <tbody>
+    <tr>
+      <td
+        colspan="3"
+      >
+        
+        No history entry yet.
+      
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
 exports[`Storyshots Table No History 1`] = `
 <table
   class="table table-striped"
@@ -495,6 +529,8 @@ exports[`Storyshots Table With History 1`] = `
   </tbody>
 </table>
 `;
+
+exports[`Storyshots Timeline Dynamic Empty Horizontal 1`] = `<div />`;
 
 exports[`Storyshots Timeline Dynamic Horizontal 1`] = `
 <div>
