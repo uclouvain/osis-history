@@ -24,11 +24,9 @@
  *
  */
 
-import Table from './Table';
-import Vue from 'vue';
-import { filterXssAndFormat } from '../utils';
-
-Vue.filter('linebreaks', filterXssAndFormat);
+import TimelineHistory from './TimelineHistory.vue';
+import type {Meta, StoryFn} from "@storybook/vue3";
+import type {Entry} from "../interfaces";
 
 const mockEntries = [{
   author: 'John Doe',
@@ -37,47 +35,60 @@ const mockEntries = [{
 }, {
   author: 'Alice Smith',
   created: '03/04/2021 16:23',
-  message: 'Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium. Sit facilis vitae sapiente. Placeat est qui et.',
+  message: 'Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium.\nSit facilis vitae sapiente. Placeat est qui et.',
 }, {
   author: 'Bob Martin',
   created: '01/04/2021 08:23',
-  message: 'Corrupti reiciendis laboriosam repellat adipisci quis. Iure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.',
+  message: 'Corrupti <strong>reiciendis</strong> laboriosam repellat adipisci quis.\n\nIure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.',
 }, {
   author: 'John Doe',
   created: '28/03/2021 10:00',
   message: 'Sed et aut recusandae magni. Et aperiam dolores tempora. Eum et enim quia amet maxime quaerat earum. Quam fuga odit alias. Et repellendus accusantium corporis. Nihil et harum tenetur dolorum cum qui.',
 }];
 
-const Template = (args, { argTypes }) => ({
-  components: { Table },
+const Template: StoryFn<typeof TimelineHistory> = (args, {argTypes}) => ({
+  components: {TimelineHistory},
   props: Object.keys(argTypes),
-  template: '<Table v-bind="$props" v-on="$props" />',
+  template: '<TimelineHistory v-bind="$props" v-on="$props" />',
 });
 
-export const noHistory = Template.bind({});
-export const withHistory = Template.bind({});
-withHistory.args = {
+export const NoHistory = Template.bind({});
+export const Horizontal = Template.bind({});
+Horizontal.args = {
+  entries: mockEntries,
+  horizontal: true,
+};
+export const Vertical = Template.bind({});
+Vertical.args = {
   entries: mockEntries,
 };
-export const dynamic = Template.bind({});
-dynamic.args = {
+export const DynamicVertical = Template.bind({});
+DynamicVertical.args = {
   entries: mockEntries,
-  onHeadersRender: function () {
-    return '<tr><th>Foo</th></tr>'
-  },
-  onItemRender: function (entry) {
-    return `<tr><td>${entry.message}</td></tr>`
+  onItemRender: function (entry: Entry) {
+    return `<li><strong>${entry.author}: </strong> ${entry.message}</li>`;
   },
 };
 
-export const dynamicEmpty = Template.bind({});
-dynamicEmpty.args = {
+export const DynamicHorizontal = Template.bind({});
+DynamicHorizontal.args = {
+  entries: mockEntries,
+  horizontal: true,
+  onItemRender: function (entry: Entry) {
+    return `<li><strong>${entry.author}: </strong> ${entry.message}</li>`;
+  },
+};
+
+export const DynamicEmptyHorizontal = Template.bind({});
+DynamicEmptyHorizontal.args = {
   entries: [],
+  horizontal: true,
   onHistoryEmptyRender: function () {
-    return '<tr><td>No entry</td></tr>'
+    return `<p>No entry</p>`;
   },
 };
 
 export default {
-  title: 'Table',
-};
+  title: 'TimelineHistory',
+  component: TimelineHistory,
+} as Meta;

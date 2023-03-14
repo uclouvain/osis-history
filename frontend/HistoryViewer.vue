@@ -30,13 +30,15 @@
         class="btn-group"
         data-toggle="buttons"
     >
-      <template v-for="buttonMode in modes">
+      <template
+          v-for="buttonMode in modes"
+          :key="buttonMode"
+      >
         <label
             v-if="buttonMode === 'table'"
-            :key="buttonMode"
             class="btn btn-default"
-            :class="{active: mode === 'Table'}"
-            @click="mode = 'Table'"
+            :class="{active: mode === 'TableHistory'}"
+            @click="mode = 'TableHistory'"
         >
           <input
               type="radio"
@@ -46,10 +48,9 @@
         </label>
         <label
             v-else-if="buttonMode === 'vertical'"
-            :key="buttonMode"
             class="btn btn-default"
-            :class="{active: mode === 'Timeline' && horizontal === false}"
-            @click="mode = 'Timeline'; horizontal = false;"
+            :class="{active: mode === 'TimelineHistory' && horizontal === false}"
+            @click="mode = 'TimelineHistory'; horizontal = false;"
         >
           <input
               type="radio"
@@ -59,10 +60,9 @@
         </label>
         <label
             v-else-if="buttonMode === 'horizontal'"
-            :key="buttonMode"
             class="btn btn-default"
-            :class="{active: mode === 'Timeline' && horizontal === true}"
-            @click="mode = 'Timeline'; horizontal = true;"
+            :class="{active: mode === 'TimelineHistory' && horizontal === true}"
+            @click="mode = 'TimelineHistory'; horizontal = true;"
         >
           <input
               type="radio"
@@ -88,7 +88,7 @@
           v-else
           :entries="entries"
           :horizontal="horizontal"
-          :on-item-render="mode === 'Table' ? onItemRenderTable : (horizontal ? onItemRenderHorizontalTimeline : onItemRenderVerticalTimeline)"
+          :on-item-render="mode === 'TableHistory' ? onItemRenderTable : (horizontal ? onItemRenderHorizontalTimeline : onItemRenderVerticalTimeline)"
           :on-headers-render="onHeadersRenderTable"
           :on-history-empty="onHeadersRenderTable"
       />
@@ -96,16 +96,17 @@
   </div>
 </template>
 
-<script>
-import Table from './components/Table';
-import Timeline from './components/Timeline';
+<script lang="ts">
+import TableHistory from './components/TableHistory.vue';
+import TimelineHistory from './components/TimelineHistory.vue';
+import {defineComponent} from "vue";
+import type {PropType} from "vue";
+import type {Entry} from "./interfaces";
 
-export default {
+
+export default defineComponent({
   name: 'HistoryViewer',
-  components: {
-    Table,
-    Timeline,
-  },
+  components: {TableHistory, TimelineHistory},
   props: {
     url: {
       type: String,
@@ -116,7 +117,7 @@ export default {
       default: '',
     },
     modes: {
-      type: Array,
+      type: Array as PropType<string[]>,
       default: () => ['table', 'vertical', 'horizontal'],
     },
     defaultMode: {
@@ -144,33 +145,38 @@ export default {
       default: null,
     },
   },
-  data () {
-    let defaultMode = this.defaultMode;
+  data() {
+    let defaultMode: string = this.defaultMode;
     if (!this.modes.includes(this.defaultMode)) {
       defaultMode = this.modes[0];
     }
     return {
-      mode: defaultMode === 'table' ? 'Table' : 'Timeline',
+      mode: defaultMode === 'table' ? 'TableHistory' : 'TimelineHistory',
       horizontal: defaultMode === 'horizontal',
-      entries: [],
+      entries: [] as Entry[],
       error: '',
       loading: true,
     };
   },
-  async mounted () {
-    try {
-      const response = await fetch(`${this.url}${this.tags ? '?tags=' + this.tags : ''}`);
-      if (response.status === 200) {
-        this.entries = await response.json();
-      } else {
-        this.error = response.statusText;
-      }
-    } catch (e) {
-      this.error = e;
-    }
-    this.loading = false;
+  mounted() {
+    void this.loadEntries();
   },
-};
+  methods: {
+    loadEntries: async function () {
+      try {
+        const response = await fetch(`${this.url}${this.tags ? '?tags=' + this.tags : ''}`);
+        if (response.status === 200) {
+          this.entries = (await response.json() as Entry[]);
+        } else {
+          this.error = response.statusText;
+        }
+      } catch (e) {
+        this.error = (e as Error).message;
+      }
+      this.loading = false;
+    },
+  },
+});
 </script>
 
 <style>

@@ -24,12 +24,9 @@
  *
  */
 
-import HistoryViewer from './HistoryViewer';
+import HistoryViewer from './HistoryViewer.vue';
 import fetchMock from 'fetch-mock';
-import Vue from 'vue';
-import { filterXssAndFormat } from './utils';
-
-Vue.filter('linebreaks', filterXssAndFormat);
+import type {Meta, StoryFn} from "@storybook/vue3";
 
 const mockEntries = [{
   author: 'John Doe',
@@ -49,7 +46,7 @@ const mockEntries = [{
   message: '',
 }];
 
-export const noHistory = () => {
+export const NoHistory : StoryFn<typeof HistoryViewer> = () => {
   fetchMock.restore().mock('/test', []);
   return {
     components: { HistoryViewer },
@@ -57,7 +54,7 @@ export const noHistory = () => {
   };
 };
 
-export const httpError = () => {
+export const HttpError : StoryFn<typeof HistoryViewer> = () => {
   fetchMock.restore().mock('/test', 404);
   return {
     components: { HistoryViewer },
@@ -65,7 +62,7 @@ export const httpError = () => {
   };
 };
 
-export const exception = () => {
+export const Exception : StoryFn<typeof HistoryViewer> = () => {
   fetchMock.restore().mock('/test', { throws: new Error('Some network error') });
   return {
     components: { HistoryViewer },
@@ -73,7 +70,7 @@ export const exception = () => {
   };
 };
 
-export const withHistory = () => {
+export const WithHistory : StoryFn<typeof HistoryViewer> = () => {
   fetchMock.restore().mock('/test', mockEntries);
   return {
     components: { HistoryViewer },
@@ -81,7 +78,7 @@ export const withHistory = () => {
   };
 };
 
-export const filteringOnTag = () => {
+export const FilteringOnTag : StoryFn<typeof HistoryViewer> = () => {
   fetchMock.restore().mock('/test?tags=foo', mockEntries);
   return {
     components: { HistoryViewer },
@@ -89,7 +86,7 @@ export const filteringOnTag = () => {
   };
 };
 
-export const onlyOneMode = () => {
+export const OnlyOneMode : StoryFn<typeof HistoryViewer> = () => {
   fetchMock.restore().mock('/test', mockEntries);
   return {
     components: { HistoryViewer },
@@ -97,7 +94,7 @@ export const onlyOneMode = () => {
   };
 };
 
-export const twoModesWithDefault = () => {
+export const TwoModesWithDefault : StoryFn<typeof HistoryViewer> = () => {
   fetchMock.restore().mock('/test', mockEntries);
   return {
     components: { HistoryViewer },
@@ -107,4 +104,5 @@ export const twoModesWithDefault = () => {
 
 export default {
   title: 'Global component',
-};
+  component: HistoryViewer,
+} as Meta<typeof HistoryViewer>;

@@ -24,9 +24,18 @@
   -
   -->
 <template>
-  <div>
+  <template v-if="!entries.length">
+    <p v-if="!onHistoryEmptyRender">
+      {{ $t('no_entry') }}
+    </p>
+    <div
+        v-else
+        v-html="renderedEmpty"
+    />
+  </template>
+  <div v-else>
     <ul
-        v-if="entries.length && !onItemRender"
+        v-if="!onItemRender"
         class="timeline"
         :class="{'timeline-horizontal': horizontal}"
     >
@@ -48,57 +57,54 @@
           </div>
           <div
               class="timeline-body"
-              :inner-html.prop="entry.message|linebreaks"
+              v-html="entry.message"
           />
         </div>
       </li>
     </ul>
     <ul
-        v-else-if="entries.length && onItemRender"
+        v-else
         class="timeline"
         :class="{'timeline-horizontal': horizontal}"
-        v-html="renderedItems.join('')"
+        v-html="renderedItems"
     />
-    <template
-        v-else-if="!entries.length && onHistoryEmptyRender"
-        v-html="renderedEmpty"
-    />
-    <p v-else>
-      {{ $t('no_entry') }}
-    </p>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Timeline',
+<script lang="ts">
+import type {PropType} from "vue";
+import type {Entry} from "../interfaces";
+import {defineComponent} from "vue";
+
+export default defineComponent({
+  name: 'TimelineHistory',
   props: {
     entries: {
-      type: Array,
-      default: () => [],
+      type: Array as PropType<Entry[]>,
+      required: true,
     },
     horizontal: {
       type: Boolean,
       default: false,
     },
     onItemRender: {
-      type: Function,
+      type: Function as PropType<(entry: Entry) => string>,
       default: null,
     },
     onHistoryEmptyRender: {
-      type: Function,
+      type: Function as PropType<(mode: string) => string>,
       default: null,
     },
   },
   data: function () {
-    const mode = this.horizontal ? 'horizontal' : 'vertical';
+    const mode: string = this.horizontal ? 'horizontal' : 'vertical';
     return {
       // Render dynamically the list items
-      renderedItems: this.onItemRender ? this.entries.map(this.onItemRender) : [],
+      renderedItems: this.onItemRender ? this.entries.map(this.onItemRender).join('') : [],
       renderedEmpty: this.onHistoryEmptyRender ? this.onHistoryEmptyRender(mode) : '',
     };
   },
-};
+});
 </script>
 
 <style lang="scss">

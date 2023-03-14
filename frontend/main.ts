@@ -23,36 +23,46 @@
  *   see http://www.gnu.org/licenses/.
  *
  */
-import Vue from 'vue';
-import HistoryViewer from './HistoryViewer';
-import { i18n } from './i18n';
-import { filterXssAndFormat } from './utils';
+/* eslint-disable vue/prefer-import-from-vue */
+import {createApp} from '@vue/runtime-dom';
+import HistoryViewer from './HistoryViewer.vue';
+import {i18n} from './i18n';
+import {filterXssAndFormat} from './utils';
 
-Vue.filter('linebreaks', filterXssAndFormat);
 
-document.querySelectorAll('.history-viewer').forEach((elem) => {
-  const props = { ...elem.dataset };
-  // Get the functions from global scope
+interface Props extends Record<string, unknown> {
+  url: string,
+  pageSize?: number,
+  tags?: string[],
+  onItemRenderTable?: CallableFunction,
+  onHeadersRenderTable?: CallableFunction,
+  onItemRenderHorizontalTimeline?: CallableFunction,
+  onItemRenderVerticalTimeline?: CallableFunction,
+  onHistoryEmptyRender?: CallableFunction,
+}
+
+document.querySelectorAll<HTMLElement>('.history-viewer').forEach((elem) => {
+  const props: Props = {url: "", ...elem.dataset};
   for (const propName of [
     'onItemRenderTable',
     'onHeadersRenderTable',
     'onItemRenderHorizontalTimeline',
     'onItemRenderVerticalTimeline',
     'onHistoryEmptyRender',
-  ]) {
-    if (props[propName]) {
-      props[propName] = window[props[propName]];
+  ] as string[]) {
+    if (propName in props) {
+      const customFunctionName = props[propName] as string;
+      // @ts-ignore: get the function from global scope
+      props[propName] = window[customFunctionName] as CallableFunction;
     }
   }
-  if (props.modes) {
-    props.modes = props.modes.split(',');
+  if (typeof elem.dataset.modes !== 'undefined') {
+    props.modes = elem.dataset.modes.split(',');
   }
-  new Vue({
-    render: (h) => h(HistoryViewer, { props }),
-    i18n,
-  }).$mount(elem);
+  createApp(HistoryViewer, props).use(i18n).mount(elem);
 });
 
+// Expose util for custom rendering functions
 export {
   filterXssAndFormat,
 };

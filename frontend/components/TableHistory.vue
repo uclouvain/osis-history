@@ -24,27 +24,37 @@
   -
   -->
 <template>
-  <table
-      v-if="(!onHeadersRender && (!onItemRender || !entries.length))"
-      class="table table-striped"
-  >
-    <thead>
+  <table class="table table-striped">
+    <thead v-if="!onHeadersRender">
       <tr>
         <th>{{ $t('date') }}</th>
         <th>{{ $t('message') }}</th>
         <th>{{ $t('author') }}</th>
       </tr>
     </thead>
-    <tbody v-if="entries.length">
+    <thead
+        v-else
+        v-html="renderedHeaders"
+    />
+
+    <tbody v-if="entries.length && !onItemRender">
       <tr
           v-for="(entry, index) in entries"
           :key="index"
       >
         <td>{{ entry.created }}</td>
-        <td :inner-html.prop="entry.message|linebreaks" />
+        <td :inner-html.prop="filterXssAndFormat(entry.message)" />
         <td>{{ entry.author }}</td>
       </tr>
     </tbody>
+    <tbody
+        v-else-if="entries.length && !!onItemRender"
+        v-html="renderedRows"
+    />
+    <tbody
+        v-else-if="!!onHistoryEmptyRender"
+        v-html="renderedEmpty"
+    />
     <tbody v-else>
       <tr>
         <td colspan="3">
@@ -53,40 +63,31 @@
       </tr>
     </tbody>
   </table>
-  <table
-      v-else
-      class="table table-striped"
-  >
-    <thead v-html="renderedHeaders" />
-    <tbody
-        v-if="entries.length"
-        v-html="renderedRows.join('')"
-    />
-    <tbody
-        v-else
-        v-html="renderedEmpty"
-    />
-  </table>
 </template>
 
-<script>
-export default {
-  name: 'Table',
+<script lang="ts">
+import {defineComponent} from "vue";
+import type {PropType} from "vue";
+import type {Entry} from "../interfaces";
+import {filterXssAndFormat} from "../utils";
+
+export default defineComponent({
+  name: 'TableHistory',
   props: {
     entries: {
-      type: Array,
-      default: () => [],
+      type: Array as PropType<Entry[]>,
+      required: true,
     },
     onItemRender: {
-      type: Function,
+      type: Function as PropType<(entry: Entry) => string>,
       default: null,
     },
     onHeadersRender: {
-      type: Function,
+      type: Function as PropType<(entries: Entry[]) => string>,
       default: null,
     },
     onHistoryEmptyRender: {
-      type: Function,
+      type: Function as PropType<(mode: string) => string>,
       default: null,
     },
   },
@@ -94,11 +95,12 @@ export default {
     return {
       // Render dynamically the table headers and items
       renderedHeaders: this.onHeadersRender ? this.onHeadersRender(this.entries) : '',
-      renderedRows: this.onItemRender ? this.entries.map(this.onItemRender) : [],
+      renderedRows: this.onItemRender ? this.entries.map(this.onItemRender).join('') : [],
       renderedEmpty: this.onHistoryEmptyRender ? this.onHistoryEmptyRender('table') : '',
     };
   },
-};
+  methods: {filterXssAndFormat},
+});
 </script>
 
 <style>
