@@ -131,4 +131,5 @@ dmypy.json
 # Frontend related
 /node_modules
 /frontend/node_modules
+/storybook-static
 /coverage

@@ -59,7 +59,7 @@
           <span class="fas fa-ellipsis-v" />
         </label>
         <label
-            v-else-if="buttonMode === 'horizontal'"
+            v-else
             class="btn btn-default"
             :class="{active: mode === 'TimelineHistory' && horizontal === true}"
             @click="mode = 'TimelineHistory'; horizontal = true;"

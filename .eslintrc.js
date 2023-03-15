@@ -71,6 +71,7 @@ module.exports = {
     'vue/html-indent': ['error', 2, {
       attribute: 2,
     }],
+    'vue/no-v-html': 'off',
     'comma-dangle': ['error', 'always-multiline'],
     semi: ['error', 'always'],
     eqeqeq: ['error', 'always'],

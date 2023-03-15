@@ -8,13 +8,15 @@
     "test": "vitest",
     "lint": "eslint frontend --ext .vue,.ts,.js; vue-tsc",
     "coverage": "vitest run --coverage",
-    "storybook": "start-storybook -p 6006 -c frontend/.storybook"
+    "storybook": "start-storybook -p 6006 -c frontend/.storybook",
+    "build-storybook": "build-storybook -c frontend/.storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
     "@intlify/unplugin-vue-i18n": "^0.9.1",
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/builder-vite": "^0.4.2",
+    "@storybook/client-api": "^6.5.16",
     "@storybook/testing-library": "^0.0.13",
     "@storybook/vue3": "^6.5.16",
     "@types/fetch-mock": "^7.3.5",
