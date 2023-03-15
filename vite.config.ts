@@ -14,9 +14,12 @@ export default defineConfig({
           lintCommand: 'eslint frontend --ext .vue,.ts,.js',
         },
       }),
-      apply: 'build',
     },
   ],
+  mode: 'production',
+  define: {
+    'process.env.NODE_ENV': '"production"',
+  },
   build: {
     lib: {
       // what to build
