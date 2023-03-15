@@ -24,18 +24,10 @@
  *
  */
 
-module.exports = {
-  stories: [
-    '../**/*.stories.@(js|jsx|ts|tsx)',
-  ],
-  addons: [
-    '@storybook/addon-essentials',
-  ],
-  framework: '@storybook/vue3',
-  core: {
-    'builder': '@storybook/builder-vite',
-  },
-  features: {
-    'storyStoreV7': true,
-  },
-};
+// Declare *.vue file export as Vue components,
+// see https://github.com/vuejs/vue-eslint-parser/issues/104#issuecomment-1217306443
+declare module "*.vue" {
+  import { Component } from "vue";
+  const component: Component;
+  export default component;
+}

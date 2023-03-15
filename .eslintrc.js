@@ -25,31 +25,64 @@
  */
 
 module.exports = {
+  root: true,
   env: {
     browser: true,
     es2021: true,
   },
   extends: [
     'eslint:recommended',
-    'plugin:vue/recommended',
+    'plugin:vue/vue3-recommended',
+    'plugin:storybook/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    '@vue/typescript/recommended',
+    '@vue/eslint-config-typescript/recommended',
   ],
   overrides: [{
-    files: '*.vue',
+    files: ['.eslintrc.js'],
+    extends: ['eslint:recommended'],
+    env: {
+      node: true,
+    },
+  }, {
+    files: ['vite.config.ts', 'frontend/.storybook/main.ts'],
+    extends: ['eslint:recommended'],
+    parserOptions: {
+      project: ['./tsconfig.vite.json'],
+    },
+    env: {
+      node: true,
+    },
   }],
+  ignorePatterns: ['osis_history/static/**/*.js'],
   globals: {
     jQuery: 'readonly',
   },
+  parser: 'vue-eslint-parser',
   parserOptions: {
-    'ecmaVersion': 2021,
-    'sourceType': 'module',
+    parser: '@typescript-eslint/parser',
+    project: ['./tsconfig.json'],
+    tsconfigRootDir: __dirname,
+    ecmaVersion: 2021,
+    sourceType: 'module',
   },
-  plugins: [
-    'vue',
-  ],
+  plugins: ['vue', '@typescript-eslint'],
   rules: {
     'vue/html-indent': ['error', 2, {
-      'attribute': 2,
+      attribute: 2,
     }],
     'comma-dangle': ['error', 'always-multiline'],
+    semi: ['error', 'always'],
+    eqeqeq: ['error', 'always'],
+    'prefer-const': ['error', {
+      destructuring: 'any',
+      ignoreReadBeforeAssign: false,
+    }],
+    "@typescript-eslint/ban-ts-comment": [
+      "error",
+      {
+        "ts-ignore": "allow-with-description",
+      },
+    ],
   },
 };

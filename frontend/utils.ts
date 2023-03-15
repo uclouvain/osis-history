@@ -24,7 +24,7 @@
  *
  */
 
-export function filterXssAndFormat (value) {
+export function filterXssAndFormat (value: string) : string {
   if (!value) return '';
   const paragraphs = value.toString()
     // replace newlines (CR and CRLF with only LF)

@@ -24,18 +24,9 @@
  *
  */
 
-module.exports = {
-  stories: [
-    '../**/*.stories.@(js|jsx|ts|tsx)',
-  ],
-  addons: [
-    '@storybook/addon-essentials',
-  ],
-  framework: '@storybook/vue3',
-  core: {
-    'builder': '@storybook/builder-vite',
-  },
-  features: {
-    'storyStoreV7': true,
-  },
+// tests/unit.setup.ts
+import {config} from "@vue/test-utils";
+
+config.global.mocks = {
+  $t: (tKey: string) => tKey, // just return translation key
 };

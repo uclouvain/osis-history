@@ -24,18 +24,10 @@
  *
  */
 
-module.exports = {
-  stories: [
-    '../**/*.stories.@(js|jsx|ts|tsx)',
-  ],
-  addons: [
-    '@storybook/addon-essentials',
-  ],
-  framework: '@storybook/vue3',
-  core: {
-    'builder': '@storybook/builder-vite',
-  },
-  features: {
-    'storyStoreV7': true,
-  },
-};
+export interface Entry {
+  message: string;
+  created: string;
+  author: string;
+  tags?: string[];
+  extra_data?: object;
+}
