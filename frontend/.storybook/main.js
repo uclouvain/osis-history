@@ -38,4 +38,10 @@ module.exports = {
   features: {
     'storyStoreV7': true,
   },
+  async viteFinal (config, { configType }) {
+    if (configType === 'PRODUCTION') {
+      return { ...config, base: './' };
+    }
+    return config;
+  },
 };
