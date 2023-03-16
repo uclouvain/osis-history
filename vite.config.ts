@@ -37,6 +37,7 @@ export default defineConfig({
           'vue-i18n': 'VueI18n',
         },
         assetFileNames: "osis-history.[ext]",
+        sanitizeFileName: false,
       },
     },
   },
