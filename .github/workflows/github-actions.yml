@@ -11,6 +11,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 14.x
+
     - name: Cache npm dependencies
       uses: actions/cache@v2
       with:
@@ -19,12 +24,12 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
 
-    - name: Use Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 14.x
+    - name: install latest npm
+      run: |
+        npm install -g npm &&
+        npm --version
 
-    - run: npm install
+    - run: npm ci
     - run: npm run lint
 
   coverage:
@@ -33,6 +38,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 14.x
+
     - name: Cache npm dependencies
       uses: actions/cache@v2
       with:
@@ -41,10 +51,10 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
 
-    - name: Use Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 14.x
+    - name: install latest npm
+      run: |
+        npm install -g npm &&
+        npm --version
 
-    - run: npm install
+    - run: npm ci
     - run: npm run coverage
