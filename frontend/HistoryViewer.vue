@@ -24,75 +24,73 @@
   -
   -->
 <template>
-  <div class="history-viewer">
-    <div
-        v-if="modes.length > 1"
-        class="btn-group"
-        data-toggle="buttons"
+  <div
+      v-if="modes.length > 1"
+      class="btn-group"
+      data-toggle="buttons"
+  >
+    <template
+        v-for="buttonMode in modes"
+        :key="buttonMode"
     >
-      <template
-          v-for="buttonMode in modes"
-          :key="buttonMode"
+      <label
+          v-if="buttonMode === 'table'"
+          class="btn btn-default"
+          :class="{active: mode === 'TableHistory'}"
+          @click="mode = 'TableHistory'"
       >
-        <label
-            v-if="buttonMode === 'table'"
-            class="btn btn-default"
-            :class="{active: mode === 'TableHistory'}"
-            @click="mode = 'TableHistory'"
+        <input
+            type="radio"
+            name="mode"
         >
-          <input
-              type="radio"
-              name="mode"
-          >
-          <span class="fa fa-table" />
-        </label>
-        <label
-            v-else-if="buttonMode === 'vertical'"
-            class="btn btn-default"
-            :class="{active: mode === 'TimelineHistory' && horizontal === false}"
-            @click="mode = 'TimelineHistory'; horizontal = false;"
-        >
-          <input
-              type="radio"
-              name="mode"
-          >
-          <span class="fas fa-ellipsis-v" />
-        </label>
-        <label
-            v-else
-            class="btn btn-default"
-            :class="{active: mode === 'TimelineHistory' && horizontal === true}"
-            @click="mode = 'TimelineHistory'; horizontal = true;"
-        >
-          <input
-              type="radio"
-              name="mode"
-          >
-          <span class="fa fa-ellipsis-h" />
-        </label>
-      </template>
-    </div>
-    <div class="viewport">
-      <span
-          v-if="loading"
-          class="spinner"
-      />
-      <span
-          v-else-if="error"
-          class="text-danger"
+        <span class="fa fa-table" />
+      </label>
+      <label
+          v-else-if="buttonMode === 'vertical'"
+          class="btn btn-default"
+          :class="{active: mode === 'TimelineHistory' && horizontal === false}"
+          @click="mode = 'TimelineHistory'; horizontal = false;"
       >
-        {{ error }}
-      </span>
-      <component
-          :is="mode"
+        <input
+            type="radio"
+            name="mode"
+        >
+        <span class="fas fa-ellipsis-v" />
+      </label>
+      <label
           v-else
-          :entries="entries"
-          :horizontal="horizontal"
-          :on-item-render="mode === 'TableHistory' ? onItemRenderTable : (horizontal ? onItemRenderHorizontalTimeline : onItemRenderVerticalTimeline)"
-          :on-headers-render="onHeadersRenderTable"
-          :on-history-empty="onHeadersRenderTable"
-      />
-    </div>
+          class="btn btn-default"
+          :class="{active: mode === 'TimelineHistory' && horizontal === true}"
+          @click="mode = 'TimelineHistory'; horizontal = true;"
+      >
+        <input
+            type="radio"
+            name="mode"
+        >
+        <span class="fa fa-ellipsis-h" />
+      </label>
+    </template>
+  </div>
+  <div class="viewport">
+    <span
+        v-if="loading"
+        class="spinner"
+    />
+    <span
+        v-else-if="error"
+        class="text-danger"
+    >
+      {{ error }}
+    </span>
+    <component
+        :is="mode"
+        v-else
+        :entries="entries"
+        :horizontal="horizontal"
+        :on-item-render="mode === 'TableHistory' ? onItemRenderTable : (horizontal ? onItemRenderHorizontalTimeline : onItemRenderVerticalTimeline)"
+        :on-headers-render="onHeadersRenderTable"
+        :on-history-empty="onHeadersRenderTable"
+    />
   </div>
 </template>
 

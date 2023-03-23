@@ -1,166 +1,154 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`exception 1`] = `
-"<div class=\\"history-viewer\\">
-  <div class=\\"btn-group\\" data-toggle=\\"buttons\\"><label class=\\"btn btn-default active\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-table\\"></span></label><label class=\\"btn btn-default\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fas fa-ellipsis-v\\"></span></label><label class=\\"btn btn-default\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-ellipsis-h\\"></span></label></div>
-  <div class=\\"viewport\\"><span class=\\"text-danger\\">Some network error</span></div>
-</div>"
+"<div class=\\"btn-group\\" data-toggle=\\"buttons\\"><label class=\\"btn btn-default active\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-table\\"></span></label><label class=\\"btn btn-default\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fas fa-ellipsis-v\\"></span></label><label class=\\"btn btn-default\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-ellipsis-h\\"></span></label></div>
+<div class=\\"viewport\\"><span class=\\"text-danger\\">Some network error</span></div>"
 `;
 
 exports[`filtering on tag only 1`] = `
-"<div class=\\"history-viewer\\">
-  <div class=\\"btn-group\\" data-toggle=\\"buttons\\"><label class=\\"btn btn-default\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-table\\"></span></label><label class=\\"btn btn-default active\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fas fa-ellipsis-v\\"></span></label><label class=\\"btn btn-default\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-ellipsis-h\\"></span></label></div>
-  <div class=\\"viewport\\">
-    <div>
-      <ul class=\\"timeline\\">
-        <li class=\\"timeline-item\\">
-          <div class=\\"timeline-badge\\"></div>
-          <div class=\\"timeline-panel\\">
-            <div class=\\"timeline-heading\\">
-              <h3 class=\\"h4\\"><span class=\\"glyphicon glyphicon-time\\"></span> 06/04/2021 16:23 - <span class=\\"glyphicon glyphicon-user\\"></span> John Doe</h3>
-            </div>
-            <div class=\\"timeline-body\\">Ut molestiae aliquam tenetur est veritatis dolorum tempora. Eaque similique et qui ea consequatur illum dignissimos. Ullam qui vel qui quo. Ea dolor quasi quibusdam quia illum sunt aspernatur. Eveniet odio quos ad.</div>
+"<div class=\\"btn-group\\" data-toggle=\\"buttons\\"><label class=\\"btn btn-default\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-table\\"></span></label><label class=\\"btn btn-default active\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fas fa-ellipsis-v\\"></span></label><label class=\\"btn btn-default\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-ellipsis-h\\"></span></label></div>
+<div class=\\"viewport\\">
+  <div>
+    <ul class=\\"timeline\\">
+      <li class=\\"timeline-item\\">
+        <div class=\\"timeline-badge\\"></div>
+        <div class=\\"timeline-panel\\">
+          <div class=\\"timeline-heading\\">
+            <h3 class=\\"h4\\"><span class=\\"glyphicon glyphicon-time\\"></span> 06/04/2021 16:23 - <span class=\\"glyphicon glyphicon-user\\"></span> John Doe</h3>
           </div>
-        </li>
-        <li class=\\"timeline-item\\">
-          <div class=\\"timeline-badge\\"></div>
-          <div class=\\"timeline-panel\\">
-            <div class=\\"timeline-heading\\">
-              <h3 class=\\"h4\\"><span class=\\"glyphicon glyphicon-time\\"></span> 03/04/2021 16:23 - <span class=\\"glyphicon glyphicon-user\\"></span> Alice Smith</h3>
-            </div>
-            <div class=\\"timeline-body\\">Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium.
-              Sit facilis vitae sapiente. Placeat est qui et.</div>
+          <div class=\\"timeline-body\\">Ut molestiae aliquam tenetur est veritatis dolorum tempora. Eaque similique et qui ea consequatur illum dignissimos. Ullam qui vel qui quo. Ea dolor quasi quibusdam quia illum sunt aspernatur. Eveniet odio quos ad.</div>
+        </div>
+      </li>
+      <li class=\\"timeline-item\\">
+        <div class=\\"timeline-badge\\"></div>
+        <div class=\\"timeline-panel\\">
+          <div class=\\"timeline-heading\\">
+            <h3 class=\\"h4\\"><span class=\\"glyphicon glyphicon-time\\"></span> 03/04/2021 16:23 - <span class=\\"glyphicon glyphicon-user\\"></span> Alice Smith</h3>
           </div>
-        </li>
-        <li class=\\"timeline-item\\">
-          <div class=\\"timeline-badge\\"></div>
-          <div class=\\"timeline-panel\\">
-            <div class=\\"timeline-heading\\">
-              <h3 class=\\"h4\\"><span class=\\"glyphicon glyphicon-time\\"></span> 01/04/2021 08:23 - <span class=\\"glyphicon glyphicon-user\\"></span> Bob Martin</h3>
-            </div>
-            <div class=\\"timeline-body\\">Corrupti <strong>reiciendis</strong> laboriosam repellat adipisci quis.
+          <div class=\\"timeline-body\\">Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium.
+            Sit facilis vitae sapiente. Placeat est qui et.</div>
+        </div>
+      </li>
+      <li class=\\"timeline-item\\">
+        <div class=\\"timeline-badge\\"></div>
+        <div class=\\"timeline-panel\\">
+          <div class=\\"timeline-heading\\">
+            <h3 class=\\"h4\\"><span class=\\"glyphicon glyphicon-time\\"></span> 01/04/2021 08:23 - <span class=\\"glyphicon glyphicon-user\\"></span> Bob Martin</h3>
+          </div>
+          <div class=\\"timeline-body\\">Corrupti <strong>reiciendis</strong> laboriosam repellat adipisci quis.
 
-              Iure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.</div>
+            Iure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.</div>
+        </div>
+      </li>
+      <li class=\\"timeline-item\\">
+        <div class=\\"timeline-badge\\"></div>
+        <div class=\\"timeline-panel\\">
+          <div class=\\"timeline-heading\\">
+            <h3 class=\\"h4\\"><span class=\\"glyphicon glyphicon-time\\"></span> 28/03/2021 10:00 - <span class=\\"glyphicon glyphicon-user\\"></span> John Doe</h3>
           </div>
-        </li>
-        <li class=\\"timeline-item\\">
-          <div class=\\"timeline-badge\\"></div>
-          <div class=\\"timeline-panel\\">
-            <div class=\\"timeline-heading\\">
-              <h3 class=\\"h4\\"><span class=\\"glyphicon glyphicon-time\\"></span> 28/03/2021 10:00 - <span class=\\"glyphicon glyphicon-user\\"></span> John Doe</h3>
-            </div>
-            <div class=\\"timeline-body\\"></div>
-          </div>
-        </li>
-      </ul>
-    </div>
+          <div class=\\"timeline-body\\"></div>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>"
 `;
 
 exports[`http error 1`] = `
-"<div class=\\"history-viewer\\">
-  <div class=\\"btn-group\\" data-toggle=\\"buttons\\"><label class=\\"btn btn-default active\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-table\\"></span></label><label class=\\"btn btn-default\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fas fa-ellipsis-v\\"></span></label><label class=\\"btn btn-default\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-ellipsis-h\\"></span></label></div>
-  <div class=\\"viewport\\"><span class=\\"text-danger\\">Not Found</span></div>
-</div>"
+"<div class=\\"btn-group\\" data-toggle=\\"buttons\\"><label class=\\"btn btn-default active\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-table\\"></span></label><label class=\\"btn btn-default\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fas fa-ellipsis-v\\"></span></label><label class=\\"btn btn-default\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-ellipsis-h\\"></span></label></div>
+<div class=\\"viewport\\"><span class=\\"text-danger\\">Not Found</span></div>"
 `;
 
 exports[`no history 1`] = `
-"<div class=\\"history-viewer\\">
-  <div class=\\"btn-group\\" data-toggle=\\"buttons\\"><label class=\\"btn btn-default active\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-table\\"></span></label><label class=\\"btn btn-default\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fas fa-ellipsis-v\\"></span></label><label class=\\"btn btn-default\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-ellipsis-h\\"></span></label></div>
-  <div class=\\"viewport\\">
-    <table class=\\"table table-striped\\" horizontal=\\"false\\">
-      <thead>
-        <tr>
-          <th>date</th>
-          <th>message</th>
-          <th>author</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td colspan=\\"3\\">no_entry</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+"<div class=\\"btn-group\\" data-toggle=\\"buttons\\"><label class=\\"btn btn-default active\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-table\\"></span></label><label class=\\"btn btn-default\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fas fa-ellipsis-v\\"></span></label><label class=\\"btn btn-default\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-ellipsis-h\\"></span></label></div>
+<div class=\\"viewport\\">
+  <table class=\\"table table-striped\\" horizontal=\\"false\\">
+    <thead>
+      <tr>
+        <th>date</th>
+        <th>message</th>
+        <th>author</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan=\\"3\\">no_entry</td>
+      </tr>
+    </tbody>
+  </table>
 </div>"
 `;
 
 exports[`two modes with bad default 1`] = `
-"<div class=\\"history-viewer\\">
-  <div class=\\"btn-group\\" data-toggle=\\"buttons\\"><label class=\\"btn btn-default active\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-table\\"></span></label><label class=\\"btn btn-default\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-ellipsis-h\\"></span></label></div>
-  <div class=\\"viewport\\">
-    <table class=\\"table table-striped\\" horizontal=\\"false\\">
-      <thead>
-        <tr>
-          <th>date</th>
-          <th>message</th>
-          <th>author</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>06/04/2021 16:23</td>
-          <td></td>
-          <td>John Doe</td>
-        </tr>
-        <tr>
-          <td>03/04/2021 16:23</td>
-          <td></td>
-          <td>Alice Smith</td>
-        </tr>
-        <tr>
-          <td>01/04/2021 08:23</td>
-          <td></td>
-          <td>Bob Martin</td>
-        </tr>
-        <tr>
-          <td>28/03/2021 10:00</td>
-          <td></td>
-          <td>John Doe</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+"<div class=\\"btn-group\\" data-toggle=\\"buttons\\"><label class=\\"btn btn-default active\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-table\\"></span></label><label class=\\"btn btn-default\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-ellipsis-h\\"></span></label></div>
+<div class=\\"viewport\\">
+  <table class=\\"table table-striped\\" horizontal=\\"false\\">
+    <thead>
+      <tr>
+        <th>date</th>
+        <th>message</th>
+        <th>author</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>06/04/2021 16:23</td>
+        <td></td>
+        <td>John Doe</td>
+      </tr>
+      <tr>
+        <td>03/04/2021 16:23</td>
+        <td></td>
+        <td>Alice Smith</td>
+      </tr>
+      <tr>
+        <td>01/04/2021 08:23</td>
+        <td></td>
+        <td>Bob Martin</td>
+      </tr>
+      <tr>
+        <td>28/03/2021 10:00</td>
+        <td></td>
+        <td>John Doe</td>
+      </tr>
+    </tbody>
+  </table>
 </div>"
 `;
 
 exports[`with history 1`] = `
-"<div class=\\"history-viewer\\">
-  <div class=\\"btn-group\\" data-toggle=\\"buttons\\"><label class=\\"btn btn-default active\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-table\\"></span></label><label class=\\"btn btn-default\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fas fa-ellipsis-v\\"></span></label><label class=\\"btn btn-default\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-ellipsis-h\\"></span></label></div>
-  <div class=\\"viewport\\">
-    <table class=\\"table table-striped\\" horizontal=\\"false\\">
-      <thead>
-        <tr>
-          <th>date</th>
-          <th>message</th>
-          <th>author</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>06/04/2021 16:23</td>
-          <td></td>
-          <td>John Doe</td>
-        </tr>
-        <tr>
-          <td>03/04/2021 16:23</td>
-          <td></td>
-          <td>Alice Smith</td>
-        </tr>
-        <tr>
-          <td>01/04/2021 08:23</td>
-          <td></td>
-          <td>Bob Martin</td>
-        </tr>
-        <tr>
-          <td>28/03/2021 10:00</td>
-          <td></td>
-          <td>John Doe</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+"<div class=\\"btn-group\\" data-toggle=\\"buttons\\"><label class=\\"btn btn-default active\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-table\\"></span></label><label class=\\"btn btn-default\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fas fa-ellipsis-v\\"></span></label><label class=\\"btn btn-default\\"><input type=\\"radio\\" name=\\"mode\\"><span class=\\"fa fa-ellipsis-h\\"></span></label></div>
+<div class=\\"viewport\\">
+  <table class=\\"table table-striped\\" horizontal=\\"false\\">
+    <thead>
+      <tr>
+        <th>date</th>
+        <th>message</th>
+        <th>author</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>06/04/2021 16:23</td>
+        <td></td>
+        <td>John Doe</td>
+      </tr>
+      <tr>
+        <td>03/04/2021 16:23</td>
+        <td></td>
+        <td>Alice Smith</td>
+      </tr>
+      <tr>
+        <td>01/04/2021 08:23</td>
+        <td></td>
+        <td>Bob Martin</td>
+      </tr>
+      <tr>
+        <td>28/03/2021 10:00</td>
+        <td></td>
+        <td>John Doe</td>
+      </tr>
+    </tbody>
+  </table>
 </div>"
 `;

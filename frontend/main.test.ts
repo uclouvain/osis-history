@@ -44,12 +44,10 @@ test('mount app with conversions', async () => {
   window.customOnHeadersRenderTable = () => ``;
   document.body.innerHTML = `
   <div
-    id="app"
     class="history-viewer"
     data-url="/api"
   ></div>
   <div
-    id="app1"
     class="history-viewer"
     data-url="/api"
     data-modes="table,horizontal"
