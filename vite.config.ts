@@ -45,6 +45,7 @@ export default defineConfig({
       statements: 100,
       include: ['frontend'],
       exclude: [
+        "frontend/locales/",
         "frontend/node_modules/",
         "frontend/.storybook",
         "frontend/**/*.stories.{ts,js}",

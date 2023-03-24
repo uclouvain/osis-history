@@ -46,10 +46,12 @@ const mockEntries = [{
   message: 'Sed et aut recusandae magni. Et aperiam dolores tempora. Eum et enim quia amet maxime quaerat earum. Quam fuga odit alias. Et repellendus accusantium corporis. Nihil et harum tenetur dolorum cum qui.',
 }];
 
-const Template: StoryFn<typeof TableHistory> = (args, {argTypes}) => ({
+const Template: StoryFn<typeof TableHistory> = (args) => ({
   components: {TableHistory},
-  props: Object.keys(argTypes),
-  template: '<TableHistory v-bind="$props" v-on="$props" />',
+  setup() {
+    return {args};
+  },
+  template: '<TableHistory :entries="[]" v-bind="args" />',
 });
 
 export const NoHistory = Template.bind({});
