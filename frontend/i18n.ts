@@ -25,23 +25,13 @@
  */
 
 import {createI18n} from 'vue-i18n';
-
-const messages = {
-  en: {
-    date: 'Date',
-    message: 'Message',
-    author: 'Author',
-    no_entry: 'No history entry yet.',
-  },
-  'fr-be': {
-    date: 'Date',
-    message: 'Message',
-    author: 'Auteur',
-    no_entry: "Aucune entrée d'historique pour le moment.",
-  },
-};
+import en from "./locales/en";
+import fr from "./locales/fr";
 
 export const i18n = createI18n({
   locale: document.documentElement.lang || 'en',
-  messages,
+  messages: {
+    en,
+    fr,
+  },
 });

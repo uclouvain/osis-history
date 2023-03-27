@@ -43,7 +43,7 @@
           :key="index"
       >
         <td>{{ entry.created }}</td>
-        <td :inner-html.prop="filterXssAndFormat(entry.message)" />
+        <td v-html="filterXssAndFormat(entry.message)" />
         <td>{{ entry.author }}</td>
       </tr>
     </tbody>

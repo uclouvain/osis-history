@@ -93,17 +93,25 @@ exports[`two modes with bad default 1`] = `
     <tbody>
       <tr>
         <td>06/04/2021 16:23</td>
-        <td></td>
+        <td>
+          <p>Ut molestiae aliquam tenetur est veritatis dolorum tempora. Eaque similique et qui ea consequatur illum dignissimos. Ullam qui vel qui quo. Ea dolor quasi quibusdam quia illum sunt aspernatur. Eveniet odio quos ad.</p>
+        </td>
         <td>John Doe</td>
       </tr>
       <tr>
         <td>03/04/2021 16:23</td>
-        <td></td>
+        <td>
+          <p>Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium.<br>Sit facilis vitae sapiente. Placeat est qui et.</p>
+        </td>
         <td>Alice Smith</td>
       </tr>
       <tr>
         <td>01/04/2021 08:23</td>
-        <td></td>
+        <td>
+          <p>Corrupti &lt;strong&gt;reiciendis&lt;/strong&gt; laboriosam repellat adipisci quis.</p>
+
+          <p>Iure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.</p>
+        </td>
         <td>Bob Martin</td>
       </tr>
       <tr>
@@ -130,17 +138,25 @@ exports[`with history 1`] = `
     <tbody>
       <tr>
         <td>06/04/2021 16:23</td>
-        <td></td>
+        <td>
+          <p>Ut molestiae aliquam tenetur est veritatis dolorum tempora. Eaque similique et qui ea consequatur illum dignissimos. Ullam qui vel qui quo. Ea dolor quasi quibusdam quia illum sunt aspernatur. Eveniet odio quos ad.</p>
+        </td>
         <td>John Doe</td>
       </tr>
       <tr>
         <td>03/04/2021 16:23</td>
-        <td></td>
+        <td>
+          <p>Nulla natus dolores dolor. Voluptatem numquam doloribus architecto non praesentium.<br>Sit facilis vitae sapiente. Placeat est qui et.</p>
+        </td>
         <td>Alice Smith</td>
       </tr>
       <tr>
         <td>01/04/2021 08:23</td>
-        <td></td>
+        <td>
+          <p>Corrupti &lt;strong&gt;reiciendis&lt;/strong&gt; laboriosam repellat adipisci quis.</p>
+
+          <p>Iure omnis cum nihil accusantium ut doloribus nisi. Ut itaque suscipit et nulla iste enim. Assumenda quis et ullam temporibus quidem rerum nostrum. Rerum debitis quae qui ea molestiae animi minus optio.</p>
+        </td>
         <td>Bob Martin</td>
       </tr>
       <tr>
