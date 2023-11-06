@@ -45,9 +45,10 @@ class HistoryEntryAdmin(admin.ModelAdmin):
         'object_uuid',
         'created',
         'author',
+        'extra_data',
     )
     list_filter = [TagsListFilter]
-    search_fields = ('object_uuid', 'author')
+    search_fields = ('object_uuid', 'author', 'extra_data',)
     date_hierarchy = 'created'
 
 
