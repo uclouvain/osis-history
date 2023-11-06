@@ -27,7 +27,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='OSIS History',
-    version='0.1',
+    version='0.2',
     description='History management API and UI',
     url='http://github.com/uclouvain/osis-history',
     author='Université catholique de Louvain',
